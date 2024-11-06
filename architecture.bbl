@@ -25,41 +25,41 @@
 V.~R. Basili, ``Software modeling and measurement: The goal/question/metric
   paradigm,'' 1992.
 
-\bibitem{Schiavone2018}
-A.~G. Schiavone, ``Is moodle accessible? an analysis through experiences in
-  scientific literature and a case study,'' in \emph{Proceedings of}, vol.~1,
-  2018.
+\bibitem{ambler2006refactoring}
+S.~W. Ambler and P.~J. Sadalage, \emph{Refactoring Databases: Evolutionary
+  Database Design}.\hskip 1em plus 0.5em minus 0.4em\relax Addison-Wesley
+  Professional, 2006.
 
-\bibitem{Acosta2016}
+\bibitem{sadalage2007recipes}
+P.~J. Sadalage, \emph{Recipes for Continuous Database Integration: Evolutionary
+  Database Development}.\hskip 1em plus 0.5em minus 0.4em\relax Addison-Wesley
+  Professional, 2007.
+
+\bibitem{spinellis2005version}
+D.~Spinellis, ``Version control systems,'' \emph{IEEE Software}, vol.~22,
+  no.~5, pp. 108--109, 2005.
+
+\bibitem{fluri2023measuring}
+J.~Fluri, F.~Fornari, and E.~Pustulka, ``Measuring the benefits of ci/cd
+  practices for database application development,'' in \emph{IEEE/ACM
+  International Conference on Software and System Processes (ICSSP)}, 2023, pp.
+  46--57.
+
+\bibitem{cao2022estimating}
+L.~Cao, ``Estimating efforts for various activities in agile software
+  development: An empirical study,'' \emph{IEEE Access}, vol.~10, pp.
+  83\,311--83\,321, 2022.
+
+\bibitem{roddick1992schema}
+J.~F. Roddick, ``Schema evolution in database systems: An annotated
+  bibliography,'' \emph{ACM SIGMOD Record}, vol.~21, no.~4, pp. 35--40, 1992.
+
+\bibitem{Monje2011}
 \BIBentryALTinterwordspacing
-T.~Acosta and S.~Luján-Mora, ``Comparison from the levels of accessibility on
-  lms platforms that supports the online learning system,'' in \emph{8th
-  International Conference on Education and New Learning Technologies},
-  Barcelona, Spain, 2016, pp. 2704--2711. [Online]. Available:
-  \url{https://library.iated.org/view/ACOSTA2016COM}
+C.~Monje, ``Metodología de la investigación cuantitativa y cualitativa,''
+  2011. [Online]. Available:
+  \url{https://www.uv.mx/rmipe/files/2017/02/Guia-didactica-metodologia-de-la-investigacion.pdf}
 \BIBentrySTDinterwordspacing
-
-\bibitem{Bocevska2018}
-A.~Bocevska, S.~Savoska, B.~Ristevski, and N.~Blazheska-Tabakovska, ``Analysis
-  of accessibility of the e-learning platforms according to the wcag 2.0
-  standard compliance,'' 2018.
-
-\bibitem{DaSilva}
-K.~Da~Silva~Bermúdez, J.~García~Sibaja, F.~J. Martínez~de Lemos,
-  P.~Matarrita~Brenes, K.~Ureña~Benavides, and J.~Vargas~Varela, ``Volviendo
-  accesible la accesibilidad web: creación de un modelo de aplicación de
-  accesibilidad web que propicie el uso de los estándares internacionales de
-  la wcag en usuarios especializados del área de diseño y desarrollo de
-  sitios web en costa rica.''
-
-\bibitem{TTawalbeh2017}
-T.~Tawalbeh, ``Efl instructors’ perceptions of blackboard learning management
-  system (lms) at university level,'' in \emph{English Language Teaching},
-  vol.~11, 2017, p.~1.
-
-\bibitem{FerrariFabianoJose}
-F.~Ferrari and J.~Maldonado, ``Experimenting with a multi-iteration systematic
-  review in software engineering,'' in \emph{na}, 2017.
 
 \bibitem{IBMAccessibilityEqualAccessToolkit}
 \BIBentryALTinterwordspacing

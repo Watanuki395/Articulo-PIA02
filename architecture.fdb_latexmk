@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex architecture"] 1730780671.30492 "architecture.aux" "architecture.bbl" "architecture" 1730780673.78987 0
-  "./references.bib" 1714337981 6268 1ce664515f30dd6110186adf9d89a1ba ""
+["bibtex architecture"] 1730872283.99531 "architecture.aux" "architecture.bbl" "architecture" 1730872286.26621 0
+  "./references.bib" 1730872021 8171 268b169d9f325751f6aa7305c482502a ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "architecture.aux" 1730780672 4485 b996398150f73032df93968ec3c01f18 "pdflatex"
+  "architecture.aux" 1730872285 4843 0bf48a574f08be174f7a22cbb0689ba4 "pdflatex"
   (generated)
   "architecture.bbl"
   "architecture.blg"
   (rewritten before read)
-["pdflatex"] 1730780671.64383 "c:/Users/Ore/Documents/Git Projects/Articulo-PIA02/architecture.tex" "architecture.pdf" "architecture" 1730780673.79054 0
+["pdflatex"] 1730872284.35794 "c:/Users/Ore/Documents/Git Projects/Articulo-PIA02/architecture.tex" "architecture.pdf" "architecture" 1730872286.26697 0
   "C:/Users/Ore/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1714336236 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Ore/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1713229757 24235062 4331d4375578390c9c8b0d9b20ba0042 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -81,11 +81,11 @@
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/xurl/xurl.sty" 1641733940 4675 e4b8c405820368c2dfb03526e16d725a ""
   "IEEEtran.cls" 1713196958 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
-  "architecture.aux" 1730780672 4485 b996398150f73032df93968ec3c01f18 "pdflatex"
-  "architecture.bbl" 1730780671 3923 de26f903f04c4eae83b1b841e2dcabbd "bibtex architecture"
-  "architecture.out" 1730780672 1832 9964da8ad353888b084d747d89df8631 "pdflatex"
-  "architecture.tex" 1730780668 29520 8969d3b219eb32754d351d5b31d617b4 ""
-  "c:/Users/Ore/Documents/Git Projects/Articulo-PIA02/architecture.tex" 1730780668 29520 8969d3b219eb32754d351d5b31d617b4 ""
+  "architecture.aux" 1730872285 4843 0bf48a574f08be174f7a22cbb0689ba4 "pdflatex"
+  "architecture.bbl" 1730872284 3784 1751a8c99c84752b2ea5d2c9b685467c "bibtex architecture"
+  "architecture.out" 1730872285 1944 c755727fcd7a618d739ff75aa061401d "pdflatex"
+  "architecture.tex" 1730872280 36916 fbfe4bed85a0d4cd21c7b706dcc328d0 ""
+  "c:/Users/Ore/Documents/Git Projects/Articulo-PIA02/architecture.tex" 1730872280 36916 fbfe4bed85a0d4cd21c7b706dcc328d0 ""
   "images/figure1.png" 1714331614 21366 26c9acf704347d904672d4d8b7f04ab7 ""
   "images/figure2.png" 1714332371 302393 5728ebb5f3d1788a50bcbc3e9ff532e9 ""
   "images/operablePrinciple.png" 1714359075 26721 01659675d60d2d7de0f4790cd2ca2191 ""
