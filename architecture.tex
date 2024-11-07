@@ -5,6 +5,7 @@
 \usepackage{xurl}
 \usepackage{float}
 \usepackage{tabularx}
+
 \graphicspath{{./images/}}
 
 
@@ -51,8 +52,7 @@ En el desarrollo de software moderno, las bases de datos desempeñan un rol fund
 
 Este proyecto aborda la problemática de la falta de una arquitectura robusta de control de versiones para bases de datos evolutivas, lo cual afecta la calidad y eficiencia de los procesos de CI/CD en las organizaciones. La propuesta tiene como objetivo desarrollar una arquitectura de control de versiones específica para bases de datos que evolucionan constantemente, buscando reducir riesgos de errores y conflictos en los cambios, mejorar la consistencia de los datos y facilitar la integración rápida y frecuente de nuevas características. Además, esta solución permitirá mantener un registro exhaustivo de todos los cambios, apoyando tanto la implementación de mejoras como la corrección de errores.
 
-Desde el punto de vista técnico, herramientas como Liquibase y Flyway ofrecen funcionalidades clave que pueden adaptarse y optimizarse para satisfacer las necesidades de control de versiones en bases de datos.
-Operativamente, el proyecto es viable, ya que muchas organizaciones ya emplean prácticas de control de versiones en sus procesos de CI/CD, y la integración de una arquitectura específica para bases de datos no requerirá cambios disruptivos, sino mejoras y adaptaciones efectivas.
+Desde el punto de vista técnico, herramientas como Liquibase y Flyway ofrecen funcionalidades clave que pueden adaptarse y optimizarse para satisfacer las necesidades de control de versiones en bases de datos. Operativamente, el proyecto es viable, ya que muchas organizaciones ya emplean prácticas de control de versiones en sus procesos de CI/CD, y la integración de una arquitectura específica para bases de datos no requerirá cambios disruptivos, sino mejoras y adaptaciones efectivas.
 
 Conforme al paradigma Objetivo-Pregunta-Métrica (GQM) \cite{Basili1992}, el objetivo de esta investigación se puede enunciar de la siguiente manera:
 
@@ -129,71 +129,116 @@ El objetivo general de este proyecto es proponer una arquitectura de control de 
     \item Probar la efectividad de la arquitectura propuesta en entornos reales de desarrollo de software, asegurando que los beneficios descritos se materialicen en la práctica y mejoren la productividad y seguridad de los procesos de desarrollo.
 \end{enumerate}
 
-\section{IBM equal accessibility checker}
-To collect the WCAG 2.2 ratings on the analyzed pages, we used the "IBM Equal Accessibility Checker 7.3," which is an open-source tool (https://github.com/IBMa/equal-access) and available for free. It integrates into the browser's development tools and provides a comprehensive analysis environment through the auditor's or developer's browser, allowing for automatic accessibility evaluation of the visited page.This study is conducted using Google Chrome, and therefore, the tool is obtained through the official Google Chrome extension store.\cite{IBMAccessibilityEqualAccessToolkit}
+\section{Liquibase}
 
-We will use version 7.3, which includes six new success criteria from the Web Content Accessibility Guidelines (WCAG) 2.2 Level A and AA, as well as criteria that were already included in previous versions.
+Liquibase es una herramienta de código abierto ampliamente utilizada para el control de versiones en bases de datos. Ofrece funcionalidades clave, como la compatibilidad con bases de datos SQL y NoSQL, la reversión de cambios (rollback) y la integración con herramientas de CI/CD como Jenkins y GitHub Actions. Estas características permiten una gestión eficaz de las modificaciones en el modelo de datos, asegurando la trazabilidad y minimizando el riesgo de errores en los entornos de desarrollo, prueba y producción.\\ Además, Liquibase permite definir cambios en formatos como XML, YAML, JSON o SQL, lo que brinda flexibilidad a los equipos de desarrollo y facilita su integración en proyectos de diferentes escalas.
 
-The rule set applied in this tool is grouped as follows:
+Para organizar los cambios, Liquibase utiliza un archivo principal denominado \textit{changelog} que contiene una lista cronológica de cambios estructurada en \textit{changesets}. Cada \textit{changeset} es una unidad atómica de cambio que incluye un identificador único, el autor y las instrucciones para realizar el cambio, como sentencias SQL o referencias a archivos SQL externos. En este proyecto, el formato YAML ha sido seleccionado para el \textit{changelog} por su simplicidad y claridad. A través del \textit{changelog}, Liquibase asegura que los cambios se apliquen de manera ordenada, controlada y consistente, particularmente en entornos de CI/CD, reduciendo el riesgo de conflictos y facilitando la implementación de actualizaciones.
+
+La configuración del proyecto con Liquibase requiere un archivo \texttt{liquibase.properties} que especifica la conexión a la base de datos y el \textit{changelog} principal. Este enfoque también permite que los desarrolladores y DBAs trabajen directamente sobre archivos \texttt{.sql} para realizar modificaciones, aprovechando la trazabilidad de Liquibase. En algunos casos, como en los scripts de datos que necesitan ejecutarse múltiples veces, es posible configurar el \textit{changeset} con la opción \texttt{runOnChange}, lo que permite ejecutar el script cada vez que se despliegue.
+
+Para la ejecución de los cambios, Liquibase emplea el comando \texttt{liquibase update}, que aplica únicamente los \textit{changesets} aún no registrados en la tabla \textbf{DATABASECHANGELOG}. Esta tabla, creada en la base de datos, mantiene un registro detallado de cada \textit{changeset} ejecutado, incluyendo el ID, autor, fecha y checksum, lo que verifica la integridad de los cambios. Este sistema asegura que los cambios no se dupliquen, y permite que Liquibase mantenga una secuencia controlada, respetando dependencias entre objetos para evitar errores. Así, Liquibase optimiza el control de versiones en bases de datos relacionales, integrándose eficazmente en entornos de desarrollo ágiles y facilitando la gestión de cambios.
+
+
+Características principales de esta herramienta:
 
 \begin{itemize}
-    \item Non-text content
-    \item Keyboard content
-    \item Language Parsing
+    \item \textbf{Compatibilidad con múltiples bases de datos}: Soporta bases de datos SQL y NoSQL, permitiendo su uso en entornos con diferentes sistemas de gestión de bases de datos.
+    \item \textbf{Rollback o reversión de cambios}: Permite deshacer cambios aplicados previamente, asegurando una recuperación controlada en caso de errores.
+    \item \textbf{Integración con herramientas CI/CD}: Se integra con plataformas como Jenkins y GitHub Actions, facilitando la automatización del despliegue y la sincronización de cambios.
+    \item \textbf{Formatos de definición de cambios flexibles}: Ofrece opciones para definir cambios en varios formatos como XML, YAML, JSON o SQL, proporcionando flexibilidad para distintos equipos de desarrollo.
+    \item \textbf{Changelog y changesets}: Organiza los cambios en un archivo de \textit{changelog} que estructura los cambios en \textit{changesets} atómicos, los cuales incluyen un identificador único, autor y detalles del cambio.
+    \item \textbf{Registro de cambios en la base de datos}: Utiliza la tabla \textbf{DATABASECHANGELOG} para registrar el historial de cambios, garantizando la trazabilidad y la integridad de cada actualización.
+    \item \textbf{Comando de actualización controlada}: Ejecuta el comando \texttt{liquibase update} para aplicar solo los cambios nuevos, evitando duplicados y controlando la secuencia de ejecución.
+    \item \textbf{Configuración personalizada}: Admite configuraciones específicas en el archivo \texttt{liquibase.properties}, permitiendo conexiones personalizadas.
 \end{itemize}
 
-The technique used for analysis relies on the tool's functionality, which checks various aspects of web accessibility in accordance with WCAG 2.2 guidelines, as mentioned earlier. It scans the pages to be analyzed, pinpointing potential accessibility issues and offering insights into elements that don't meet specified standards, such as exporting results in Excel format, among other functionalities.
+\section{Flyway}
 
-Key features to note include:
+Flyway es una herramienta de migración de base de datos que utiliza archivos SQL o código Java para aplicar cambios secuenciales y versionados a la base de datos. A diferencia de Liquibase, que emplea archivos de control llamados changelogs, Flyway sigue una convención de nombres simple para versionar los archivos SQL y asegura que se ejecuten en el orden correcto. Los cambios en la base de datos se aplican a través de archivos de migración, los cuales tienen un formato de nombres específico que permite a Flyway controlar el orden en que se aplican. 
+
+Cada archivo de migración comienza con un prefijo \textit{V} seguido de un número de versión por ejemplo, \texttt{V1\_\_, V2\_\_, etc.}, lo que asegura que los cambios se ejecuten secuencialmente en función del número de versión. Flyway también soporta correcciones a través de archivos especiales que comienzan con \texttt{R\_\_} en lugar de \texttt{V\_\_}, lo que permite aplicar cambios repetidos como en el caso de vistas y funciones.
+
+La configuración de Flyway requiere el archivo llamado \texttt{flyway.conf}, donde se especifican parámetros clave como la conexión a la base de datos, el directorio donde se encuentran los scripts de migración, y otras configuraciones relevantes. Estos parámetros incluyen la URL de la base de datos, las credenciales de acceso, el esquema de destino y la ubicación de los archivos de migración. Además, el parámetro \texttt{flyway.baselineOnMigrate} permite establecer un punto de partida para bases de datos que ya contienen datos, facilitando la integración de Flyway en proyectos existentes.
+
+La jerarquía de carpetas en Flyway es sencilla, siguiendo una convención en la que los archivos de migración versionados comienzan con \texttt{V\_\_} y los archivos de migración repetibles con \texttt{R\_\_}. Los archivos \texttt{V\_\_} se aplican secuencialmente según el número de versión, mientras que los archivos \texttt{R\_\_} son ejecutados cada vez que se detectan cambios. Esta estructura organizada facilita la gestión de las migraciones y asegura que se apliquen en el orden correcto.
+
+Los archivos SQL son fundamentales en Flyway para gestionar las migraciones. Estos archivos contienen los scripts que Flyway ejecuta secuencialmente para realizar los cambios en la base de datos. La convención de nombres de los archivos garantiza que se sigan las secuencias adecuadas para las migraciones versionadas y repetibles. Cada archivo SQL es ejecutado una sola vez, en el caso de las migraciones versionadas, y repetidamente, en el caso de las migraciones repetibles.
+
+Flyway proporciona una serie de comandos útiles para la gestión de migraciones. El comando \texttt{flyway migrate} se utiliza para aplicar todas las migraciones pendientes, mientras que \texttt{flyway info} permite obtener información sobre el estado de las migraciones aplicadas. Además, el comando \texttt{flyway repair} se utiliza para reparar la tabla de historial en caso de inconsistencias. Los cambios realizados se registran en una tabla llamada \texttt{flyway\_schema\_history}, que mantiene un historial detallado de las migraciones aplicadas, incluyendo el número de versión, la descripción, la fecha de ejecución y el resultado de la migración. Esta tabla es crucial para evitar la duplicación de migraciones y permite el seguimiento de los errores en el proceso de migración. \\
+
+Las principales características de Flyway son las siguientes:
 
 \begin{itemize}
-    \item Automatic scanning: The tool automatically analyzes the webpage, identifying areas of concern regarding accessibility.
-    \item Comprehensive reports: Following the analysis, we thoroughly examine the detailed reports provided by the tool to draw conclusions and formulate recommendations aimed at improving accessibility.
+    \item \textbf{Convención de nombres para archivos de migración}: Los archivos de migración versionados comienzan con \texttt{V\_\_} seguido de un número de versión (ej. \texttt{V1\_\_}), mientras que los archivos de migración repetibles comienzan con \texttt{R\_\_}.
+    \item \textbf{Ejecución secuencial de migraciones}: Los archivos de migración son ejecutados en orden según su número de versión.
+    \item \textbf{Soporte para correcciones}: Los archivos de corrección (\texttt{R\_\_}) se ejecutan repetidamente, lo cual es útil para cambios frecuentes como en vistas y funciones.
+    \item \textbf{Registro de historial de migraciones}: Flyway mantiene una tabla llamada \texttt{flyway\_schema\_history} donde guarda información sobre todas las migraciones aplicadas, incluyendo la versión, descripción, fecha de ejecución y resultado.
+    \item \textbf{Configuración mediante \texttt{flyway.conf}}: En el archivo de configuración \texttt{flyway.conf} se especifican parámetros clave como la URL de la base de datos, las credenciales de acceso, el esquema de destino y la ubicación de los archivos de migración.
+    \item \textbf{Migraciones aplicadas automáticamente}: Flyway aplica todas las migraciones pendientes al ejecutar el comando \texttt{flyway migrate}.
+    \item \textbf{Comandos útiles}: Flyway incluye comandos como \texttt{flyway migrate} para aplicar migraciones, \texttt{flyway info} para ver el estado de las migraciones y \texttt{flyway repair} para reparar la tabla de historial.
+    \item \textbf{Soporte para bases de datos existentes}: Flyway permite establecer un punto de partida para bases de datos que ya contienen datos mediante el parámetro \texttt{flyway.baselineOnMigrate}.
+    \item \textbf{Integración con CI/CD}: Flyway se puede integrar fácilmente en pipelines de CI/CD para automatizar el proceso de migración de bases de datos.
 \end{itemize}
 
-This tools offers integrated accessibility testing through plug-ins and modules for Node JS and Karma \cite{Karma}
-The URL that will be covered in the scope of the investigation are in the taxonomy of the page in next image
 
-\begin{figure}[H]
-    \includegraphics[width=0.48\textwidth]{images/figure1.png}
-    \caption{Moodle page taxonomy}
-    \label{fig:figure1}
-\end{figure}
+\section{GitOps para bases de datos relacionales}
+GitOps es un enfoque que automatiza la gestión de infraestructura y aplicaciones mediante la sincronización de estados declarativos almacenados en un repositorio Git con los entornos de producción. En el caso de bases de datos, aplicar GitOps significa gestionar los cambios de esquema y migraciones a través de pipelines de CI/CD, asegurando que los despliegues de la base de datos sean consistentes, seguros y completamente automatizados. Este enfoque permite que las migraciones de bases de datos sean tratadas como código, lo que mejora la trazabilidad, la consistencia y la eficiencia en los despliegues.
 
-\section{MOODLE}
-Moodle is one of the most popular open source LMS options available today. It features dashboards, learner tracking, and multimedia support. This open source Learning Management System also gives the ability to create mobile-friendly online courses integrating third party add-ons. One of the standouts of this tool is the user community \cite{Moodle2024}.
-
-E-Learning has a series of conditions to have a successful learning process. The student's motivation and his/her level of responsibility and autonomy are crucial to achieve it. It is also important the quality of the digital materials and their design, as well as the appropriate learning situations and methodologies provided by the teacher to carry out learning, an accurate, quick and efficient tutoring are also fundamental elements \cite{Rahman2019}.
-
-\section{WCAG}
-The Web Content Accessibility Guidelines 2.2 \cite{W3C2023} was issued by the world's leading organization - The World Wide Web Consortium (W3C) on October 5, 2023.  In the following image are the differences between the tree version.
-
-\begin{figure}[H]
-    \includegraphics[width=0.48\textwidth]{images/figure2.png}
-    \caption{ Web Content Accessibility Guidelines 2.0 / 2.1 / 2.2}
-    \label{fig:figure2}
-\end{figure}
-
-Accessibility, usability, and inclusion are three important factors to be considered while developing a website usable by people with disabilities \cite{W3C2020}. The  WAI suggests a set of WCAG guidelines to be followed by developers of any website. Thus, each tool is checked if it follows at least one version of WCAG standards like WCAG 2.0, WCAG 2.1 and WCAG 2.2. 
-
-Success criteria WCAG guidelines available at the W3C have a testable success criterion \cite{W3C2008} that can be categorized into three levels of conformance namely A, AA and AAA respectively. Each conformance level creates a better user experience for a wider audience. Thus, we ensured to select tools that follow at least two levels of conformance to evaluate a webpage no less than sufficiently accessible. The conformance levels are as follows:
-\begin{itemize}
-    \item Level A (Lowest Level): This holds the lowest level of accessibility success criterion to be satisfied by any website to be classified as accessible. A few suggestions by this level include-provide text alternatives for all non-text content; provide equivalent information for time-based media; create content that may be presented in multiple ways; use of color; audio and keyboard controls. 
-    \item Level AA (Sufficient Level): This holds a higher level of accessibility success criterion than Level A. The website should meet all conditions mentioned in Level A. Additionally, it should include live audio caption; audio description; text contrast and resizing; text over images; appropriate labels/headings.
-    \item Level AAA (Highest Level): This holds the highest level of accessibility success criterion. The website should successfully meet all the criteria mentioned in Level A and Level AA along with extended audio descriptions; sign languages; multimedia alternatives and interruptions; and content size.
-\end{itemize} 
-
-\subsection{POUR factors}
-Guidelines and success criteria defined by the W3C are organized around four principles called the POUR factors. These principles lay the foundation necessary for anyone to access and use Web content with ease \cite{Moorman1999}. POUR is the abbreviation of Perceivable, Operable, Understandable and Robust. Each of the web accessibility evaluation tool is checked to follow at least one of the four factors. Additionally, information available on the website should be:
-
+\subsection{Propuesta para GitOps en Bases de Datos}
+El flujo GitOps propuesto para la base de datos sigue los siguientes pasos:
 
 \begin{itemize}
-    \item Perceivable: The user interface components and information on website must be presented in a way that can be perceived by users with ease.
-    \item Operable: Navigation and user interface components must be operable. This is necessary for users to operate all components required for interaction.
-    \item Understandable: Operation and information of the interface must be understandable by the user. This is necessary as users must be able to understand the information and operations offered by website.
-    \item Robust: Contents of website should work across.
+    \item \textbf{Control de cambios con Git:} Todas las migraciones de la base de datos se almacenan en un repositorio Git. Los archivos de migración de Liquibase o Flyway (changelogs, scripts SQL) se versionan y son revisados mediante pull requests.
+    \item \textbf{Integración Continua (CI):} Cada vez que se sube un cambio (una nueva migración de base de datos) al repositorio Git, un pipeline CI valida la integridad del código SQL. Un SQL linter como SQLFluff puede ser utilizado en este proceso para verificar que los scripts sigan las mejores prácticas de estilo y calidad. Además, se ejecutan pruebas automáticas en un entorno de base de datos de prueba para verificar que las migraciones no rompan la integridad del esquema.
+    \item \textbf{Despliegue Continuo (CD):} Si las pruebas CI son exitosas, el pipeline de CD es activado y los cambios de la base de datos se despliegan de forma automatizada en entornos como staging y producción. Dependiendo de la herramienta utilizada (Liquibase o Flyway), se ejecutarán las migraciones correspondientes para garantizar que la base de datos esté sincronizada con el estado actual del código en el repositorio Git.
 \end{itemize}
 
+\subsection{Liquibase en un Pipeline de CI/CD}
+Para integrar Liquibase en un pipeline CI/CD, se pueden utilizar archivos de configuración como \texttt{.gitlab-ci.yml} o \texttt{.github/workflows/cicd.yml} donde se definen los pasos para validar los changelogs, aplicar los cambios y verificar el estado de la base de datos. Un ejemplo de configuración de GitHub Action para 
+
+Este flujo de trabajo valida, prueba y despliega las migraciones utilizando Liquibase en el pipeline CI/CD, aplicando primero los cambios en un entorno de prueba y luego en el entorno de producción si las pruebas son exitosas.
+
+\subsection{Flyway en un Pipeline de CI/CD}
+De manera similar, Flyway se puede integrar en el pipeline para gestionar las migraciones, con la configuración de GitHub en el archivo \texttt{.github/workflows/cicd.yml}. Un ejemplo de configuración de GitHub Action para Flyway se presenta a continuación:
+
+
+Este archivo de configuración de GitHub Actions muestra cómo Flyway valida y aplica migraciones en los entornos de prueba y producción, siguiendo un proceso similar al de Liquibase para garantizar que los cambios de base de datos se gestionen de manera controlada y automática.
+
+\section{SQL Linter}
+
+Un SQL linter es una herramienta diseñada para analizar el código SQL y detectar posibles errores, inconsistencias o malas prácticas antes de que se ejecuten en la base de datos. Al igual que los linters utilizados en otros lenguajes de programación, un linter de SQL ayuda a mejorar la calidad del código, asegurando que se adhiera a los estándares de codificación establecidos y que sea fácil de mantener y entender. El uso de un linter en los proyectos de bases de datos es crucial, ya que garantiza que el código SQL esté optimizado, siga convenciones predefinidas, y evite errores comunes como errores de sintaxis, inconsistencias y malas prácticas.
+
+\subsection{SQLFluff}
+
+En esta solución se propone utilizar \texttt{SQLFluff}, un linter extensible y configurable para SQL, ideal para proyectos que involucren diversas plataformas de bases de datos como PostgreSQL, MySQL y SQL Server. \texttt{SQLFluff} es una herramienta de código abierto que soporta múltiples dialectos SQL, lo que lo convierte en una opción versátil para entornos con diferentes bases de datos. Su integración en los procesos de desarrollo e implementación asegura que las consultas SQL sigan las mejores prácticas antes de ser enviadas a producción, lo que ayuda a mantener la calidad del código en todo momento. Además, \texttt{SQLFluff} es altamente adaptable, permitiendo la creación de reglas personalizadas que se ajustan a los estándares de codificación específicos de cada equipo o proyecto. Su capacidad para integrarse en pipelines de CI/CD facilita la verificación del código SQL antes del despliegue, garantizando el cumplimiento de las convenciones establecidas. También puede analizar archivos \texttt{.sql}, detectando errores como inconsistencias en mayúsculas, problemas de formato o uso incorrecto de columnas, y ofrece autocorrección para adoptar un estilo uniforme en los proyectos de manera más eficiente.
+
+\subsection{Configuración de SQLFluff}
+
+El primer paso para incorporar \texttt{SQLFluff} es su instalación. Dado que se basa en Python, es recomendable contar con un entorno de desarrollo en Python bien configurado. Una vez asegurado esto, se puede instalar \texttt{SQLFluff} utilizando el gestor de paquetes de Python, \texttt{pip}, mediante el comando \texttt{pip install sqlfluff}. Esto facilita su integración en cualquier flujo de trabajo automatizado. Es importante aclarar que Python no es obligatorio para el uso de \texttt{SQLFluff}, pero es la opción más directa y sencilla.
+
+Para que \texttt{SQLFluff} se comporte de acuerdo con las reglas del proyecto, es necesario un archivo de configuración específico, el cual debe ser llamado \texttt{.sqlfluff} y debe de estar en la raíz del proyecto. Este archivo define aspectos clave como el dialecto de base de datos, la longitud máxima de líneas, el estilo de indentación, entre otros. Dado que estamos utilizando PostgreSQL como base de datos en este proyecto, configuraremos el dialecto para que \texttt{SQLFluff} analice las consultas SQL con las convenciones propias de PostgreSQL.\\ El siguiente es un ejemplo básico del archivo de configuración:
+
+\begin{verbatim}
+[sqlfluff]
+dialect = postgres           
+max_line_length = 120
+exclude_rules = L009
+tab_space_size = 4  
+indent_unit = space          
+\end{verbatim}
+
+Este archivo garantiza que \texttt{SQLFluff} siga las reglas que mejor se adapten a las necesidades del proyecto y a los estándares definidos para los scripts SQL.
+
+\subsection{Configuración de Pre-Commit}
+
+Para asegurar que ningún script SQL llegue al repositorio con errores de estilo o formato, podemos integrar \texttt{SQLFluff} con \texttt{pre-commit}, de manera que cada vez que un desarrollador intente hacer un commit, el código SQL sea analizado automáticamente. Esto añade una capa adicional de control, asegurando que el código SQL que se integra cumpla con las reglas del proyecto. Para integrar \texttt{pre-commit}, debemos instalarlo utilizando el manejador de paquetes de Python, \texttt{pip}, mediante el comando \texttt{pip install pre-commit}. Luego, se configura un archivo llamado \texttt{.pre-commit-config.yaml} que define los hooks que \texttt{SQLFluff} ejecutará antes de cada commit que se quiera agregar al repositorio.
+
+Esto permite que cada vez que se haga un commit, \texttt{SQLFluff} valide los archivos \texttt{.sql} y, si es posible, corrija automáticamente algunos errores de estilo sin intervención manual. Además, cabe aclarar que \texttt{SQLFluff} puede ejecutarse manualmente sobre los scripts SQL del proyecto utilizando la terminal del sistema. Esto es útil cuando se quiere revisar el código de manera proactiva antes de hacer cualquier cambio significativo. En este caso, el comando para ejecutar la revisión del código sería \texttt{sqlfluff lint <nombre\_del\_archivo.sql>}, y en caso de querer corregir los errores encontrados, se ejecutaría \texttt{sqlfluff fix <nombre\_del\_archivo.sql>}. Si se desea ejecutar la revisión sobre todo el proyecto, solo basta con reemplazar el nombre del archivo por un punto, un ejemplo de esto sería: \texttt{sqlfluff fix .}.
+
+\subsection{Consideraciones de la implementación}
+
+Ambas herramientas, \texttt{Liquibase} y \texttt{Flyway}, se integran perfectamente en un entorno GitOps con PostgreSQL, proporcionando trazabilidad completa de los cambios en la base de datos. Al utilizar un repositorio Git como la fuente de verdad y un linter para SQL que nos ayude a mantener algunas reglas entre los miembros del equipo de desarrollo, se asegura que cualquier modificación en la base de datos esté bien documentada y pueda ser revisada, probada y desplegada de forma controlada. Además, tanto \texttt{Liquibase} como \texttt{Flyway} mantienen una tabla interna (\texttt{databasechangelog} en \texttt{Liquibase} y \texttt{flyway\_schema\_history} en \texttt{Flyway}) en la base de datos para registrar las migraciones aplicadas. Estas tablas son esenciales para el correcto funcionamiento de los despliegues automatizados, y es importante considerar las capacidades de rollback que ofrecen las herramientas, siendo más flexible en \texttt{Liquibase} que en \texttt{Flyway}, ya que este último depende más de scripts SQL orientados a versiones.
 
 
 \section{Results}
