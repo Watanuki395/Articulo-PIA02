@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.15)  6 NOV 2024 21:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.15)  7 NOV 2024 22:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -325,199 +325,103 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 ] [2] [3]
-Underfull \hbox (badness 2205) in paragraph at lines 136--137
+Underfull \hbox (badness 2205) in paragraph at lines 148--149
 \OT1/ptm/m/n/10 prin-ci-pal de-nom-i-nado \OT1/ptm/m/it/10 changelog \OT1/ptm/m/n/10 que con-tiene una lista
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 138.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 150.
 (C:\Users\Ore\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 1400) in paragraph at lines 138--139
+Underfull \hbox (badness 1400) in paragraph at lines 150--151
 []\OT1/ptm/m/n/10 La con-fig-u-raci[]on del proyecto con Liquibase re-quiere
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
 []\OT1/ptm/m/n/10 Para la eje-cuci[]on de los cam-bios, Liquibase
  []
 
 
-Underfull \hbox (badness 3657) in paragraph at lines 140--141
+Underfull \hbox (badness 3657) in paragraph at lines 152--153
 \OT1/ptm/m/n/10 em-plea el co-mando \OT1/pcr/m/n/10 liquibase update\OT1/ptm/m/n/10 , que aplica
  []
 
 
-Underfull \hbox (badness 1478) in paragraph at lines 140--141
+Underfull \hbox (badness 1478) in paragraph at lines 152--153
 \OT1/ptm/m/n/10 el con-trol de ver-siones en bases de datos rela-cionales,
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
 []\OT1/ptm/b/n/10 Configuraci[]on me-di-ante \OT1/pcr/b/n/10 flyway.conf\OT1/ptm/m/n/10 : En el
  []
 
 
-Underfull \hbox (badness 8019) in paragraph at lines 178--179
+Underfull \hbox (badness 8019) in paragraph at lines 190--191
 []\OT1/ptm/b/n/10 Migraciones apli-cadas au-tom[]aticamente\OT1/ptm/m/n/10 : Fly-way
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 179--180
+Underfull \hbox (badness 1960) in paragraph at lines 191--192
 []\OT1/ptm/b/n/10 Comandos []utiles\OT1/ptm/m/n/10 : Fly-way in-cluye co-man-dos como
  []
 
-[5] [6]
-<images/scanResult.png, id=151, 450.18187pt x 301.125pt>
-File: images/scanResult.png Graphic file (type png)
-<use images/scanResult.png>
-Package pdftex.def Info: images/scanResult.png  used on input line 252.
-(pdftex.def)             Requested size: 247.6778pt x 165.6698pt.
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ []
 
-<images/operablePrinciple.png, id=157, 462.22687pt x 267.24844pt>
-File: images/operablePrinciple.png Graphic file (type png)
-<use images/operablePrinciple.png>
-Package pdftex.def Info: images/operablePrinciple.png  used on input line 260.
-(pdftex.def)             Requested size: 247.6778pt x 143.20282pt.
-<images/perceivablePrinciple.png, id=158, 464.4853pt x 267.24844pt>
-File: images/perceivablePrinciple.png Graphic file (type png)
-<use images/perceivablePrinciple.png>
-Package pdftex.def Info: images/perceivablePrinciple.png  used on input line 266.
-(pdftex.def)             Requested size: 247.6778pt x 142.50958pt.
+[6]
+<images/figure1.png, id=147, 328.97906pt x 264.99pt>
+File: images/figure1.png Graphic file (type png)
+<use images/figure1.png>
+Package pdftex.def Info: images/figure1.png  used on input line 261.
+(pdftex.def)             Requested size: 247.6778pt x 199.50621pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 5908) has occurred while \output is active []
 
  [7
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.270 q
-       
-pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.270 q
-        <./images/scanResult.png> <./images/operablePrinciple.png>]
-<images/robustPrinciple.png, id=171, 465.23813pt x 255.20343pt>
-File: images/robustPrinciple.png Graphic file (type png)
-<use images/robustPrinciple.png>
-Package pdftex.def Info: images/robustPrinciple.png  used on input line 272.
-(pdftex.def)             Requested size: 247.6778pt x 135.86075pt.
-<images/undestandablePrinciple.png, id=172, 459.21562pt x 257.46187pt>
-File: images/undestandablePrinciple.png Graphic file (type png)
-<use images/undestandablePrinciple.png>
-Package pdftex.def Info: images/undestandablePrinciple.png  used on input line 278.
-(pdftex.def)             Requested size: 247.6778pt x 138.86234pt.
-
-Overfull \hbox (0.69756pt too wide) in paragraph at lines 317--317
-[]|\OT1/ptm/b/n/8 Grades| 
- []
-
-
-Overfull \hbox (4.71356pt too wide) in paragraph at lines 317--317
-[]|\OT1/ptm/b/n/8 Landing
- []
-
-
-Overfull \hbox (4.71356pt too wide) in paragraph at lines 317--317
-[]|\OT1/ptm/b/n/8 Landing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 317--317
-\OT1/ptm/b/n/8 Page
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 317--317
-[]|\OT1/ptm/b/n/8 My
- []
-
-
-Overfull \hbox (4.07356pt too wide) in paragraph at lines 344--344
-[]|\OT1/ptm/b/n/8 Landing
- []
-
-
-Overfull \hbox (4.07356pt too wide) in paragraph at lines 344--344
-[]|\OT1/ptm/b/n/8 Landing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 344--344
-\OT1/ptm/b/n/8 Page
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 344--344
-[]|\OT1/ptm/b/n/8 My
- []
-
-
-Overfull \hbox (2.72153pt too wide) in paragraph at lines 344--344
-\OT1/ptm/b/n/8 Courses| 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[8
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.352 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.352 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.352 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.352 
-       <./images/perceivablePrinciple.png> <./images/robustPrinciple.png> <./images/undestandablePrinciple.png>] (architecture.bbl
+l.280     \item M
+                 oodle demonstrates strong adherence to accessibility criter... <./images/figure1.png>] (architecture.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 25--27
 []\OT1/ptm/m/n/8 V. R. Basili, ``Soft-ware mod-el-ing and mea-sure-ment: The
  []
 
-) [9
-pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.373 \end{document}
-                    ] (architecture.aux)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 61.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 61.
+) [8
+
+] (architecture.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `architecture.out' has not changed.
-(rerunfilecheck)             Checksum: DCC3962191232CD61AD9F7112BF6D5B2;3478.
+(rerunfilecheck)             Checksum: 11B3EB5BA37F630EF347C897BF371E64;3255.
  ) 
 Here is how much of TeX's memory you used:
- 9577 strings out of 474424
- 155315 string characters out of 5742683
- 1952496 words of memory out of 5000000
- 31762 multiletter control sequences out of 15000+600000
- 597537 words of font info for 101 fonts, out of 8000000 for 9000
+ 9526 strings out of 474424
+ 153974 string characters out of 5742683
+ 1951496 words of memory out of 5000000
+ 31721 multiletter control sequences out of 15000+600000
+ 594706 words of font info for 98 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 75i,10n,79p,1634b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,7n,79p,1634b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on architecture.pdf (9 pages, 276449 bytes).
+Output written on architecture.pdf (8 pages, 176208 bytes).
 PDF statistics:
- 235 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
- 202 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 PDF objects out of 1000 (max. 8388607)
+ 43 named destinations out of 1000 (max. 500000)
+ 174 words of extra memory for PDF output out of 10000 (max. 10000000)
 

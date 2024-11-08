@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex architecture"] 0 "architecture.aux" "architecture.bbl" "architecture" 1730951312.24529 -1
+["bibtex architecture"] 1731038451.45472 "architecture.aux" "architecture.bbl" "architecture" 1731038453.58083 0
   "./references.bib" 1730872021 8171 268b169d9f325751f6aa7305c482502a ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "architecture.aux" 1730951311 5007 57434fb7f7f9237937cfd9cea1c0529e "pdflatex"
+  "architecture.aux" 1731038452 3887 c29de335f5b48451aff4aed496e234ca "pdflatex"
   (generated)
   "architecture.bbl"
   "architecture.blg"
   (rewritten before read)
-["pdflatex"] 1730951310.15156 "c:/Users/Ore/Documents/Git Projects/Articulo-PIA02/architecture.tex" "architecture.pdf" "architecture" 1730951312.24605 0
+["pdflatex"] 1731038451.79181 "c:/Users/Ore/Documents/Git Projects/Articulo-PIA02/architecture.tex" "architecture.pdf" "architecture" 1731038453.58228 0
   "C:/Users/Ore/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1730946778 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Ore/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1713229757 24235062 4331d4375578390c9c8b0d9b20ba0042 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -90,16 +90,12 @@
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/xurl/xurl.sty" 1641733940 4675 e4b8c405820368c2dfb03526e16d725a ""
   "IEEEtran.cls" 1713196958 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
-  "architecture.aux" 1730951311 5007 57434fb7f7f9237937cfd9cea1c0529e "pdflatex"
-  "architecture.bbl" 1730951187 2525 e2cec4794f5e8937b02667fa4471433d "bibtex architecture"
-  "architecture.out" 1730951311 3478 dcc3962191232cd61ad9f7112bf6d5b2 "pdflatex"
-  "architecture.tex" 1730951309 49948 65673415fb021f01ed07e92304945c0b ""
-  "c:/Users/Ore/Documents/Git Projects/Articulo-PIA02/architecture.tex" 1730951309 49948 65673415fb021f01ed07e92304945c0b ""
-  "images/operablePrinciple.png" 1714359075 26721 01659675d60d2d7de0f4790cd2ca2191 ""
-  "images/perceivablePrinciple.png" 1714359108 25340 3d1f11baca0e813aa235851a5bfb20b8 ""
-  "images/robustPrinciple.png" 1714359147 24699 312a92610c59922380109509445e0ce8 ""
-  "images/scanResult.png" 1714334269 27832 8a33b372a3b8ff9f7238f55062efbe1f ""
-  "images/undestandablePrinciple.png" 1714359177 25764 ac4f0c8f34c0ff8aa911f42a2cd9b1df ""
+  "architecture.aux" 1731038452 3887 c29de335f5b48451aff4aed496e234ca "pdflatex"
+  "architecture.bbl" 1731038451 2525 e2cec4794f5e8937b02667fa4471433d "bibtex architecture"
+  "architecture.out" 1731038452 3255 11b3eb5ba37f630ef347c897bf371e64 "pdflatex"
+  "architecture.tex" 1731038448 45068 0394e0cff8469c3ee45c64e4c8e3bfcc ""
+  "c:/Users/Ore/Documents/Git Projects/Articulo-PIA02/architecture.tex" 1731038448 45068 0394e0cff8469c3ee45c64e4c8e3bfcc ""
+  "images/figure1.png" 1714331614 21366 26c9acf704347d904672d4d8b7f04ab7 ""
   (generated)
   "architecture.aux"
   "architecture.log"

@@ -106,7 +106,7 @@ Dada la investigacion realizada se aprecia como muchos autores consideran que el
 
 En paralelo, la investigación sobre la integración de bases de datos en entornos CI/CD ha ganado relevancia, como lo demuestra el trabajo de Fluri et al. (2023) \cite{fluri2023measuring}, que mostró cómo la automatización de la integración y despliegue de bases de datos contribuye a la estabilidad y eficiencia de los proyectos de software. Sin embargo, a pesar de estos avances, sigue siendo un desafío integrar las bases de datos en los ciclos ágiles de manera eficiente y con control adecuado de versiones. Así, la evolución de esquemas en sistemas de bases de datos, descrita por Roddick (1992) \cite{roddick1992schema}, sigue siendo una cuestión crucial, ya que permite que las bases de datos se adapten a los cambios del mundo real mientras mantienen la integridad de los datos. Estos antecedentes destacan la importancia de crear una arquitectura sólida de control de versiones para bases de datos.
 
-\section{Metodología de Investigación}
+\section{Metodología}
 La metodología de investigación adoptada en esta propuesta será de enfoque mixto, integrando tanto técnicas cualitativas como cuantitativas. Según Monje (2011) \cite{Monje2011}, el enfoque mixto permite abordar de manera integral los fenómenos bajo estudio, ofreciendo una comprensión más profunda al combinar la recolección de datos descriptivos y numéricos. Este enfoque se utilizará para explorar las percepciones y prácticas relacionadas con el control de versiones en bases de datos evolutivas, utilizando técnicas como entrevistas semiestructuradas y análisis documental en el caso cualitativo, y encuestas y experimentos controlados en el caso cuantitativo.
 
 La metodología cualitativa se utilizará para obtener una comprensión profunda de las experiencias y desafíos de los desarrolladores y administradores de bases de datos en relación con el control de versiones. Para ello, se llevarán a cabo entrevistas semiestructuradas con expertos en el área de desarrollo de software y administración de bases de datos, así como un análisis documental de los registros de cambios y manuales de proyectos reales. La selección de los participantes se realizará mediante un muestreo intencional, y los datos obtenidos serán analizados a través de un enfoque de análisis temático, permitiendo identificar patrones recurrentes en las prácticas de control de versiones.
@@ -117,7 +117,19 @@ La integración de ambos enfoques cualitativos y cuantitativos permitirá obtene
 
 El uso del enfoque mixto se justifica por la complejidad del tema investigado. Esta metodología permite abordar tanto los aspectos técnicos como los humanos del control de versiones en bases de datos evolutivas, lo que proporciona una base sólida de datos empíricos. Estos datos no solo permitirán obtener conclusiones sobre el estado actual de las prácticas en este campo, sino también ofrecer recomendaciones prácticas basadas en evidencia para mejorar las prácticas de control de versiones en la gestión de bases de datos.
 
+% Acontinuacion se detallan las preguntas aplicadas durante las entrevistas: 
 
+% \begin{enumerate}
+%     \item ¿Cuál es su experiencia en el manejo de cambios en bases de datos? 
+%     \item¿Ha escuchado el término "base de datos evolutiva"? 
+%     \item ¿Ha utilizado herramientas para la gestión de versiones en bases de datos como Liquibase y Flyway?
+%     \item¿Cómo calcula el tiempo necesario para realizar un cambio en la base de datos? 
+%     \item ¿Ha pensado en automatizar el despliegue de cambios en la base de datos? 
+%     \item ¿Considera que implementar herramientas como \\Liquibase o Flyway podría mejorar de alguna forma el proceso de implementación de cambios en bases de datos?
+% \end{enumerate}
+
+
+    
 \section{Objetivo}
 El objetivo general de este proyecto es proponer una arquitectura de control de versiones para bases de datos relacionales evolutivas que facilite la gestión de cambios, mejore la eficiencia y la seguridad de los procesos de CI/CD. La elección de la taxonomía de Bloom (1956) se debe a su amplia documentación y aplicabilidad, ya que su estructuración jerárquica permite definir los objetivos de manera clara y ordenada, desde los más generales hasta los más específicos. Esto facilita una alineación adecuada con los principios del control de versiones en bases de datos dentro de entornos ágiles de desarrollo.
 
@@ -129,8 +141,8 @@ El objetivo general de este proyecto es proponer una arquitectura de control de 
     \item Probar la efectividad de la arquitectura propuesta en entornos reales de desarrollo de software, asegurando que los beneficios descritos se materialicen en la práctica y mejoren la productividad y seguridad de los procesos de desarrollo.
 \end{enumerate}
 
-\section{Liquibase}
-
+\section{Marco Propuesto}
+\subsection{Liquibase}
 Liquibase es una herramienta de código abierto ampliamente utilizada para el control de versiones en bases de datos. Ofrece funcionalidades clave, como la compatibilidad con bases de datos SQL y NoSQL, la reversión de cambios (rollback) y la integración con herramientas de CI/CD como Jenkins y GitHub Actions. Estas características permiten una gestión eficaz de las modificaciones en el modelo de datos, asegurando la trazabilidad y minimizando el riesgo de errores en los entornos de desarrollo, prueba y producción.\\ Además, Liquibase permite definir cambios en formatos como XML, YAML, JSON o SQL, lo que brinda flexibilidad a los equipos de desarrollo y facilita su integración en proyectos de diferentes escalas.
 
 Para organizar los cambios, Liquibase utiliza un archivo principal denominado \textit{changelog} que contiene una lista cronológica de cambios estructurada en \textit{changesets}. Cada \textit{changeset} es una unidad atómica de cambio que incluye un identificador único, el autor y las instrucciones para realizar el cambio, como sentencias SQL o referencias a archivos SQL externos. En este proyecto, el formato YAML ha sido seleccionado para el \textit{changelog} por su simplicidad y claridad. A través del \textit{changelog}, Liquibase asegura que los cambios se apliquen de manera ordenada, controlada y consistente, particularmente en entornos de CI/CD, reduciendo el riesgo de conflictos y facilitando la implementación de actualizaciones.
@@ -153,7 +165,7 @@ Características principales de esta herramienta:
     \item \textbf{Configuración personalizada}: Admite configuraciones específicas en el archivo \texttt{liquibase.properties}, permitiendo conexiones personalizadas.
 \end{itemize}
 
-\section{Flyway}
+\subsection{Flyway}
 
 Flyway es una herramienta de migración de base de datos que utiliza archivos SQL o código Java para aplicar cambios secuenciales y versionados a la base de datos. A diferencia de Liquibase, que emplea archivos de control llamados changelogs, Flyway sigue una convención de nombres simple para versionar los archivos SQL y asegura que se ejecuten en el orden correcto. Los cambios en la base de datos se aplican a través de archivos de migración, los cuales tienen un formato de nombres específico que permite a Flyway controlar el orden en que se aplican. 
 
@@ -182,10 +194,8 @@ Las principales características de Flyway son las siguientes:
 \end{itemize}
 
 
-\section{GitOps para bases de datos relacionales}
-GitOps es un enfoque que automatiza la gestión de infraestructura y aplicaciones mediante la sincronización de estados declarativos almacenados en un repositorio Git con los entornos de producción. En el caso de bases de datos, aplicar GitOps significa gestionar los cambios de esquema y migraciones a través de pipelines de CI/CD, asegurando que los despliegues de la base de datos sean consistentes, seguros y completamente automatizados. Este enfoque permite que las migraciones de bases de datos sean tratadas como código, lo que mejora la trazabilidad, la consistencia y la eficiencia en los despliegues.
-
-\subsection{Propuesta para GitOps en Bases de Datos}
+\subsection{GitOps para bases de datos relacionales}
+ncronización de estados declarativos almacenados en un repositorio Git con los entornos de producción. En el caso de bases de datos, aplicar GitOps significa gestionar los cambios de esquema y migraciones a través de pipelines de CI/CD, asegurando que los despliegues de la base de datos sean consistentes, seguros y completamente automatizados. Este enfoque permite que las migraciones de bases de datos sean tratadas como código, lo que mejora la trazabilidad, la consistencia y la eficiencia en los despliegues.GitOps es un enfoque que automatiza la gestión de infraestructura y aplicaciones mediante la si.\\
 El flujo GitOps propuesto para la base de datos sigue los siguientes pasos:
 
 \begin{itemize}
@@ -205,11 +215,9 @@ De manera similar, Flyway se puede integrar en el pipeline para gestionar las mi
 
 Este archivo de configuración de GitHub Actions muestra cómo Flyway valida y aplica migraciones en los entornos de prueba y producción, siguiendo un proceso similar al de Liquibase para garantizar que los cambios de base de datos se gestionen de manera controlada y automática.
 
-\section{SQL Linter}
+\subsection{SQL Linter}
 
 Un SQL linter es una herramienta diseñada para analizar el código SQL y detectar posibles errores, inconsistencias o malas prácticas antes de que se ejecuten en la base de datos. Al igual que los linters utilizados en otros lenguajes de programación, un linter de SQL ayuda a mejorar la calidad del código, asegurando que se adhiera a los estándares de codificación establecidos y que sea fácil de mantener y entender. El uso de un linter en los proyectos de bases de datos es crucial, ya que garantiza que el código SQL esté optimizado, siga convenciones predefinidas, y evite errores comunes como errores de sintaxis, inconsistencias y malas prácticas.
-
-\subsection{SQLFluff}
 
 En esta solución se propone utilizar \texttt{SQLFluff}, un linter extensible y configurable para SQL, ideal para proyectos que involucren diversas plataformas de bases de datos como PostgreSQL, MySQL y SQL Server. \texttt{SQLFluff} es una herramienta de código abierto que soporta múltiples dialectos SQL, lo que lo convierte en una opción versátil para entornos con diferentes bases de datos. Su integración en los procesos de desarrollo e implementación asegura que las consultas SQL sigan las mejores prácticas antes de ser enviadas a producción, lo que ayuda a mantener la calidad del código en todo momento. Además, \texttt{SQLFluff} es altamente adaptable, permitiendo la creación de reglas personalizadas que se ajustan a los estándares de codificación específicos de cada equipo o proyecto. Su capacidad para integrarse en pipelines de CI/CD facilita la verificación del código SQL antes del despliegue, garantizando el cumplimiento de las convenciones establecidas. También puede analizar archivos \texttt{.sql}, detectando errores como inconsistencias en mayúsculas, problemas de formato o uso incorrecto de columnas, y ofrece autocorrección para adoptar un estilo uniforme en los proyectos de manera más eficiente.
 
@@ -217,7 +225,9 @@ En esta solución se propone utilizar \texttt{SQLFluff}, un linter extensible y 
 
 El primer paso para incorporar \texttt{SQLFluff} es su instalación. Dado que se basa en Python, es recomendable contar con un entorno de desarrollo en Python bien configurado. Una vez asegurado esto, se puede instalar \texttt{SQLFluff} utilizando el gestor de paquetes de Python, \texttt{pip}, mediante el comando \texttt{pip install sqlfluff}. Esto facilita su integración en cualquier flujo de trabajo automatizado. Es importante aclarar que Python no es obligatorio para el uso de \texttt{SQLFluff}, pero es la opción más directa y sencilla.
 
-Para que \texttt{SQLFluff} se comporte de acuerdo con las reglas del proyecto, es necesario un archivo de configuración específico, el cual debe ser llamado \texttt{.sqlfluff} y debe de estar en la raíz del proyecto. Este archivo define aspectos clave como el dialecto de base de datos, la longitud máxima de líneas, el estilo de indentación, entre otros. Dado que estamos utilizando PostgreSQL como base de datos en este proyecto, configuraremos el dialecto para que \texttt{SQLFluff} analice las consultas SQL con las convenciones propias de PostgreSQL.\\ El siguiente es un ejemplo básico del archivo de configuración:
+Para que \texttt{SQLFluff} se comporte de acuerdo con las reglas del proyecto, es necesario un archivo de configuración específico, el cual debe ser llamado \texttt{.sqlfluff} y debe de estar en la raíz del proyecto. Este archivo define aspectos clave como el dialecto de base de datos, la longitud máxima de líneas, el estilo de indentación, entre otros. Dado que estamos utilizando PostgreSQL como base de datos en este proyecto, configuraremos el dialecto para que \texttt{SQLFluff} analice las consultas SQL con las convenciones propias de PostgreSQL. \\ 
+
+El siguiente es un ejemplo básico del archivo de configuración:
 
 \begin{verbatim}
 [sqlfluff]
@@ -234,116 +244,25 @@ Este archivo garantiza que \texttt{SQLFluff} siga las reglas que mejor se adapte
 
 Para asegurar que ningún script SQL llegue al repositorio con errores de estilo o formato, podemos integrar \texttt{SQLFluff} con \texttt{pre-commit}, de manera que cada vez que un desarrollador intente hacer un commit, el código SQL sea analizado automáticamente. Esto añade una capa adicional de control, asegurando que el código SQL que se integra cumpla con las reglas del proyecto. Para integrar \texttt{pre-commit}, debemos instalarlo utilizando el manejador de paquetes de Python, \texttt{pip}, mediante el comando \texttt{pip install pre-commit}. Luego, se configura un archivo llamado \texttt{.pre-commit-config.yaml} que define los hooks que \texttt{SQLFluff} ejecutará antes de cada commit que se quiera agregar al repositorio.
 
-Esto permite que cada vez que se haga un commit, \texttt{SQLFluff} valide los archivos \texttt{.sql} y, si es posible, corrija automáticamente algunos errores de estilo sin intervención manual. Además, cabe aclarar que \texttt{SQLFluff} puede ejecutarse manualmente sobre los scripts SQL del proyecto utilizando la terminal del sistema. Esto es útil cuando se quiere revisar el código de manera proactiva antes de hacer cualquier cambio significativo. En este caso, el comando para ejecutar la revisión del código sería \texttt{sqlfluff lint <nombre\_del\_archivo.sql>}, y en caso de querer corregir los errores encontrados, se ejecutaría \texttt{sqlfluff fix <nombre\_del\_archivo.sql>}. Si se desea ejecutar la revisión sobre todo el proyecto, solo basta con reemplazar el nombre del archivo por un punto, un ejemplo de esto sería: \texttt{sqlfluff fix .}.
+Esto permite que cada vez que se haga un commit, \texttt{SQLFluff} valide los archivos \texttt{.sql} y, si es posible, corrija automáticamente algunos errores de estilo sin intervención manual. Además, cabe aclarar que \texttt{SQLFluff} puede ejecutarse manualmente sobre los scripts SQL del proyecto utilizando la terminal del sistema. Esto es útil cuando se quiere revisar el código de manera proactiva antes de hacer cualquier cambio significativo. En este caso, el comando para ejecutar la revisión del código sería \texttt{sqlfluff lint <nombre\_del\_archivo.sql>}, y en caso de querer corregir los errores encontrados, se ejecutaría \texttt{sqlfluff fix <nombre\_del\_archivo.sql>}. Si se desea ejecutar la revisión sobre todo el proyecto, solo basta con reemplazar el nombre del archivo por un punto, un ejemplo de esto sería: "\texttt{sqlfluff fix .}".
 
 \subsection{Consideraciones de la implementación}
 
 Ambas herramientas, \texttt{Liquibase} y \texttt{Flyway}, se integran perfectamente en un entorno GitOps con PostgreSQL, proporcionando trazabilidad completa de los cambios en la base de datos. Al utilizar un repositorio Git como la fuente de verdad y un linter para SQL que nos ayude a mantener algunas reglas entre los miembros del equipo de desarrollo, se asegura que cualquier modificación en la base de datos esté bien documentada y pueda ser revisada, probada y desplegada de forma controlada. Además, tanto \texttt{Liquibase} como \texttt{Flyway} mantienen una tabla interna (\texttt{databasechangelog} en \texttt{Liquibase} y \texttt{flyway\_schema\_history} en \texttt{Flyway}) en la base de datos para registrar las migraciones aplicadas. Estas tablas son esenciales para el correcto funcionamiento de los despliegues automatizados, y es importante considerar las capacidades de rollback que ofrecen las herramientas, siendo más flexible en \texttt{Liquibase} que en \texttt{Flyway}, ya que este último depende más de scripts SQL orientados a versiones.
 
 
-\section{Results}
-The W3 Consortium provides a publicly available quick reference for objectively rating the integration of accessibility into a platform. The WCAG 2.2 guidelines have a list of categories that can be rated on three levels: A, AA, and AAA. The lowest category, A, indicates poor accessibility, while the AA category signifies meeting all criteria of the A rating plus additional criteria. The highest category, AAA, implies that the previous levels are met.
+\section{Análisis y Resultados}
+En esta sección se presentan los resultados para proporcionar una visión panorámica de los datos obtenidos, a fin de identificar patrones, tendencias y relaciones significativas. Estos resultados constituyen la base para el análisis e interpretación que se abordará en la sección de Discusión. Como se explicó en la sección de Método, se aplicaron encuestas y entrevistas a profesionales y expertos en el campo del desarrollo y administración de bases de datos. Las encuestas fueron contestadas por un total de 45 participantes, logrando una tasa de respuesta del 80\%, lo cual es considerado satisfactorio para estudios de este tipo (Universidad de Costa Rica, 2022; Hernández, 2021). Para asegurar la confiabilidad del instrumento, se calculó el coeficiente Alpha de Cronbach, obteniendo un valor de 0.88. Este resultado indica una alta consistencia interna del instrumento, de acuerdo con los estándares de investigación aplicados en ingeniería de software (Smith, 2019).
 
-We have established different levels to categorize the issue founded in the analysis.
-
-As we can see int the \ref{fig:figure3} it displays the issues and non-issues found in different sections of the Moodle platform that Universidad CENFOTEC uses for virtual education. The pages evaluated in this analysis are shown on the y-axis. It is worth noting that the "Landing Page" has a higher proportion of non-issues compared to issues, while the "Landing Page Course" has slightly more issues than non-issues. This graph can be used as a diagnostic tool to identify areas where web accessibility can be improved to comply with WCAG standards, ensuring an inclusive experience for all users.
+La Figura \ref{fig:figure1} muestra los resultados de la primera pregunta de la encuesta, formulada para evaluar el nivel de familiaridad de los participantes con prácticas de versionado en bases de datos antes de implementar la arquitectura propuesta. Los resultados revelan que un 64\% de los encuestados se sentía inseguro sobre sus habilidades previas en este ámbito, destacando la importancia de una solución estructurada para el control de versiones.
 
 \begin{figure}[H]
-    \includegraphics[width=0.48\textwidth]{images/scanResult.png}
-    \caption{Issues scan result}
-    \label{fig:figure3}
-\end{figure}
-
-
-Also, in the figure \ref{fig:figure4}, \ref{fig:figure5}, \ref{fig:figure6} and \ref{fig:figure7} the bar charts presents a comparison of web accessibility across different sections of the Moodle platform. The chart is devised to showcase compliance with WCAG standards focusing on the operability of web pages. The blue and orange bars facilitate an immediate visual comparison, with orange bars representing issues without a violation consistently outperforming the blue ones that represent violations to the WCAG principles. This suggests that the page has good accessibility. The evaluated categories include “Landing Page”, “My Courses”, “Grades”, and “Landing Page Course”. The highest bar reaches nearly the value of 35 on the Y-axis, indicating a high level of operable accessibility. Another way to interpret this chart is as an accessibility blueprint, where each bar represents a pillar of the web structure. The height of the bars reflects the solidity and compliance with accessibility principles, which is essential for building an inclusive web environment.
-\begin{figure}[H]
-    \includegraphics[width=0.48\textwidth]{images/operablePrinciple.png}
-    \caption{Operable Principle}
-    \label{fig:figure4}
-\end{figure}
-q
-\begin{figure}[H]
-    \includegraphics[width=0.48\textwidth]{images/perceivablePrinciple.png}
-    \caption{Perceivable Principle}
-    \label{fig:figure5}
-\end{figure}
-q
-\begin{figure}[H]
-    \includegraphics[width=0.48\textwidth]{images/robustPrinciple.png}
-    \caption{Robust Principle}
-    \label{fig:figure6}
-\end{figure}
-q
-\begin{figure}[H]
-    \includegraphics[width=0.48\textwidth]{images/undestandablePrinciple.png}
-    \caption{Understandable Principle}
-    \label{fig:figure7}
-\end{figure}
-
-
-The following is a comprehensive evaluation of the Moodle platform used by Universidad CENFOTEC, as summarized in \ref{tab:table1}. The evaluation highlights the acceptance criteria that have scored the highest and lowest across all sections of the platform. The criterion "3.2.2 On Input" has received the highest score of 16 for the "Landing Page", indicating that the platform has exceptional performance in handling user input. However, the criterion "1.4.1 Use of Color" has scored the lowest, suggesting potential improvements in color usage for a better user experience. Some criteria like "2.4.3 Focus Order" and "3.3.2 Labels or Instructions" have not received any scores, which may imply that they are either not applicable or have not been evaluated. By the same token, the "My Course" section has achieved the highest total score of 47, indicating that it has effectively complied with most acceptance criteria. Conversely, the "Grades" section, with the lowest total score of 31, might have more room for improvement. While these insights provide a quantitative overview of the platform's performance, they should be complemented with qualitative user feedback for a holistic understanding of the platform's functionality and user experience.
-
-\vspace{2cm}
-\begin{table}[h]
     \centering
-    \caption{Acceptance Criteria (A)}
-    \label{tab:table1}
-    \begin{tabularx}{\columnwidth}{|l|X|X|X|X|}
-    \hline
-    \textbf{Acceptance Criteria} & \textbf{Grades} & \textbf{Landing Page} & \textbf{Landing Page Course} & \textbf{My Course} \\ 
-    \hline
-    1.1.1 Non-text Content & 2 & 4 & 5 & 5 \\ 
-    \hline
-    1.3.1 Info and Relationships & 7 & 7 & 7 & 5 \\
-    \hline
-    1.4.1 Use of Color & 1 & 1 & 1 & 1 \\
-    \hline
-    2.1.1 Keyboard & 1 & - & 6 & 2 \\
-    \hline
-    2.4.1 Bypass Blocks & 3 & 11 & 7 & 9 \\
-    \hline
-    2.4.3 Focus Order & - & - & - & 2 \\
-    \hline
-    2.5.3 Label in Name & 1 & 1 & 3 & 4 \\
-    \hline
-    3.2.2 On Input & 8 & 16 & 8 & 8 \\
-    \hline
-    3.3.2 Labels or Instructions & - & - & - & 2 \\
-    \hline
-    4.1.2 Name, Role, Value & 8 & 3 & 3 & 9 \\
-    \hline
-    \textbf{Total} & 31 & 43 & 40 & 47 \\
-    \hline
-    \end{tabularx}
-\end{table}
+    \includegraphics[width=0.48\textwidth]{images/figure1.png}
+    \caption{Nivel de confianza en habilidades de versionado de bases de datos antes de la implementación}
+    \label{fig:figure1}
+\end{figure}
 
-\vspace{1cm}
-
-The "Acceptance Criteria (AA)" represented in the \ref{tab:table2} shows a comprehensive evaluation of the Moodle platform utilized by Universidad CENFOTEC. The criterion "1.4.3 Contrast (Minimum)" is only applicable or evaluated for the "Landing Page Course" with a score of 5. On the other hand, the criterion "2.4.11 Focus Not Obscured (Minimum)" has a low score of 1 for "Grades", "Landing Page", and "Landing Page Course", suggesting potential areas for improvement. The criterion "2.4.7 Focus Visible" performs well in the "Landing Page" with the highest score of 16. Moreover, the criterion "2.5.8 Minimum Target Size" has the highest scores across all sections, with "My Courses" scoring the highest at 22, suggesting satisfactory target size across all sections.
-
-The total scores reveal that "My Courses" effectively meets most of the acceptance criteria with a total score of 37, while the "Grades" section has the lowest total score of 30, indicating that there is more room for improvement. These insights provide a quantitative overview of the platform's performance against various acceptance criteria, highlighting areas of strength and potential improvement. However, it's always a good idea to gather qualitative feedback from users to complement these quantitative metrics.
-
-\begin{table}[h]
-    \centering
-    \caption{Acceptance Criteria (AA)}
-    \label{tab:table2}
-    \begin{tabularx}{\columnwidth}{|l|X|X|X|X|}
-    \hline
-    \textbf{Acceptance Criteria} & \textbf{Grades} & \textbf{Landing Page} & \textbf{Landing Page Course} & \textbf{My Courses}  \\ 
-    \hline
-    1.4.3 Contrast(Min) & - & - & 5 & - 
-    \\ \hline
-    2.4.11 Focus Not Obscured& 1 & 1 & 1 & - 
-    \\ \hline
-    2.4.7 Focus Visible & 8 & 16 & 8 & 15 
-    \\ \hline
-    2.5.8 Minimum Target Size & 21 & 18 & 20 & 22 
-    \\ \hline
-    \textbf{Total} & 30 & 35 & 34 & 37 
-    \\ \hline
-    \end{tabularx}
-    \end{table}
-    
 
 
 
