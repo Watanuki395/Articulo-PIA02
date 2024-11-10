@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.15)  10 NOV 2024 14:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3.31) (preloaded format=pdflatex 2024.4.15)  10 NOV 2024 15:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -332,7 +332,7 @@ Underfull \hbox (badness 1616) in paragraph at lines 149--150
 \OT1/ptm/m/n/10 prin-ci-pal de-nom-i-nado \OT1/ptm/m/it/10 changelog\OT1/ptm/m/n/10 , que con-tiene una lista
  []
 
-<images/changelogExample.png, id=123, 511.15968pt x 516.42938pt>
+<images/changelogExample.png, id=127, 511.15968pt x 516.42938pt>
 File: images/changelogExample.png Graphic file (type png)
 <use images/changelogExample.png>
 Package pdftex.def Info: images/changelogExample.png  used on input line 153.
@@ -345,7 +345,7 @@ Underfull \hbox (badness 1400) in paragraph at lines 158--159
 []\OT1/ptm/m/n/10 La con-fig-u-raci[]on del proyecto con Liquibase re-quiere
  []
 
-<images/liquibasePropertiesExample.png, id=126, 362.10281pt x 86.57344pt>
+<images/liquibasePropertiesExample.png, id=130, 362.10281pt x 86.57344pt>
 File: images/liquibasePropertiesExample.png Graphic file (type png)
 <use images/liquibasePropertiesExample.png>
 Package pdftex.def Info: images/liquibasePropertiesExample.png  used on input line 162.
@@ -381,7 +381,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has
                                                   \__shipout_drop_firstpage_...
 l.168 
        <./images/changelogExample.png> <./images/liquibasePropertiesExample.png>]
-<images/folderHerarchyLiquibase.png, id=139, 377.15906pt x 408.02437pt>
+<images/folderHerarchyLiquibase.png, id=143, 377.15906pt x 408.02437pt>
 File: images/folderHerarchyLiquibase.png Graphic file (type png)
 <use images/folderHerarchyLiquibase.png>
 Package pdftex.def Info: images/folderHerarchyLiquibase.png  used on input line 173.
@@ -392,12 +392,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has
                                                   \__shipout_drop_firstpage_...
 l.207 
        <./images/folderHerarchyLiquibase.png>]
-<images/flywayPropertiesExample.png, id=147, 319.94531pt x 103.13531pt>
+<images/flywayPropertiesExample.png, id=151, 319.94531pt x 103.13531pt>
 File: images/flywayPropertiesExample.png Graphic file (type png)
 <use images/flywayPropertiesExample.png>
 Package pdftex.def Info: images/flywayPropertiesExample.png  used on input line 214.
 (pdftex.def)             Requested size: 247.6778pt x 79.8409pt.
-<images/folderHerarchyFlyway.png, id=149, 215.30438pt x 85.06781pt>
+<images/folderHerarchyFlyway.png, id=153, 215.30438pt x 85.06781pt>
 File: images/folderHerarchyFlyway.png Graphic file (type png)
 <use images/folderHerarchyFlyway.png>
 Package pdftex.def Info: images/folderHerarchyFlyway.png  used on input line 223.
@@ -423,7 +423,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has
                                                   \__shipout_drop_firstpage_...
 l.249 
        <./images/flywayPropertiesExample.png> <./images/folderHerarchyFlyway.png>]
-<images/sqlFluffConfigExample.png, id=159, 163.3603pt x 86.57344pt>
+<images/sqlFluffConfigExample.png, id=163, 163.3603pt x 86.57344pt>
 File: images/sqlFluffConfigExample.png Graphic file (type png)
 <use images/sqlFluffConfigExample.png>
 Package pdftex.def Info: images/sqlFluffConfigExample.png  used on input line 268.
@@ -434,7 +434,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has
                                                   \__shipout_drop_firstpage_...
 l.278 
        <./images/sqlFluffConfigExample.png>]
-<images/precommitExample.png, id=169, 283.81032pt x 118.94438pt>
+<images/precommitExample.png, id=173, 283.81032pt x 118.94438pt>
 File: images/precommitExample.png Graphic file (type png)
 <use images/precommitExample.png>
 Package pdftex.def Info: images/precommitExample.png  used on input line 281.
@@ -462,17 +462,17 @@ Package rerunfilecheck Info: File `architecture.out' has not changed.
 (rerunfilecheck)             Checksum: B078BB2CEBAE94BCAFB99DA69D96A3E9;2786.
  ) 
 Here is how much of TeX's memory you used:
- 9571 strings out of 474424
- 155778 string characters out of 5742683
+ 9575 strings out of 474424
+ 155844 string characters out of 5742683
  1952496 words of memory out of 5000000
- 31764 multiletter control sequences out of 15000+600000
+ 31766 multiletter control sequences out of 15000+600000
  594191 words of font info for 96 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  75i,6n,79p,1634b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on architecture.pdf (8 pages, 218421 bytes).
+Output written on architecture.pdf (8 pages, 220743 bytes).
 PDF statistics:
- 217 PDF objects out of 1000 (max. 8388607)
- 47 named destinations out of 1000 (max. 500000)
+ 222 PDF objects out of 1000 (max. 8388607)
+ 49 named destinations out of 1000 (max. 500000)
  188 words of extra memory for PDF output out of 10000 (max. 10000000)
 
