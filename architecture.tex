@@ -42,8 +42,6 @@ Email: gsalasm@ucenfotec.ac.cr }}
     Arquitectura de bases de datos,
     Liquibase,
     Flyway,
-    Automatización de despliegues,
-    Mantenimiento de bases de datos,
     Desarrollo ágil de software
 \end{IEEEkeywords}
 
@@ -128,6 +126,12 @@ El uso del enfoque mixto se justifica por la complejidad del tema investigado. E
 %     \item ¿Considera que implementar herramientas como \\Liquibase o Flyway podría mejorar de alguna forma el proceso de implementación de cambios en bases de datos?
 % \end{enumerate}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/figure1.png}
+    \caption{Nivel de confianza en habilidades de versionado de bases de datos antes de la implementación}
+    \label{fig:figure1}
+\end{figure}
 
     
 \section{Objetivo}
@@ -142,6 +146,11 @@ El objetivo general de este proyecto es proponer una arquitectura de control de 
 \end{enumerate}
 
 \section{Marco Propuesto}
+La propuesta de solución para el control de versiones en bases de datos evolutivas se diseñada para abordar los desafíos en la gestión de cambios en bases de datos, particularmente dentro del contexto de metodologías ágiles y prácticas de CI/CD. La arquitectura planteada permite a los equipos de desarrollo rastrear, revertir y desplegar cambios de manera eficiente y segura, minimizando los riesgos de errores y conflictos en los esquemas de bases de datos, mejorando la colaboración y asegurando la integridad de los datos a lo largo de todo el ciclo de vida del desarrollo.
+
+La metodología propuesta se apoya en herramientas como Liquibase y Flyway, enfocándose en su capacidad para gestionar cambios y automatizar migraciones en bases de datos. A través de un enfoque iterativo e incremental, la arquitectura fue refinada y adaptada a las necesidades específicas del proyecto, resultando en una solución robusta y flexible que puede integrarse en flujos de trabajo ágiles de CI/CD. Esta solución incluye una guía detallada para la implementación de control de versiones en bases de datos, ofreciendo recomendaciones basadas en la evaluación de las herramientas mencionadas y contribuyendo a mejorar los procesos de desarrollo y despliegue en entornos de bases de datos.
+
+A continuacion se describen las dos herramientas antes mencionadas para esta propuesta:
 \subsection{Liquibase}
 Liquibase es una herramienta de código abierto ampliamente utilizada para el control de versiones en bases de datos. Ofrece funcionalidades clave, como la compatibilidad con bases de datos SQL y NoSQL, la reversión de cambios (rollback) y la integración con herramientas de CI/CD como Jenkins y GitHub Actions. Estas características permiten una gestión eficaz de las modificaciones en el modelo de datos, asegurando la trazabilidad y minimizando el riesgo de errores en los entornos de desarrollo, prueba y producción.\\ Además, Liquibase permite definir cambios en formatos como XML, YAML, JSON o SQL, lo que brinda flexibilidad a los equipos de desarrollo y facilita su integración en proyectos de diferentes escalas.
 
@@ -149,7 +158,7 @@ Para organizar los cambios, Liquibase utiliza un archivo principal denominado \t
 
 La configuración del proyecto con Liquibase requiere un archivo \texttt{liquibase.properties} que especifica la conexión a la base de datos y el \textit{changelog} principal. Este enfoque también permite que los desarrolladores y DBAs trabajen directamente sobre archivos \texttt{.sql} para realizar modificaciones, aprovechando la trazabilidad de Liquibase. En algunos casos, como en los scripts de datos que necesitan ejecutarse múltiples veces, es posible configurar el \textit{changeset} con la opción \texttt{runOnChange}, lo que permite ejecutar el script cada vez que se despliegue.
 
-Para la ejecución de los cambios, Liquibase emplea el comando \texttt{liquibase update}, que aplica únicamente los \textit{changesets} aún no registrados en la tabla \textbf{DATABASECHANGELOG}. Esta tabla, creada en la base de datos, mantiene un registro detallado de cada \textit{changeset} ejecutado, incluyendo el ID, autor, fecha y checksum, lo que verifica la integridad de los cambios. Este sistema asegura que los cambios no se dupliquen, y permite que Liquibase mantenga una secuencia controlada, respetando dependencias entre objetos para evitar errores. Así, Liquibase optimiza el control de versiones en bases de datos relacionales, integrándose eficazmente en entornos de desarrollo ágiles y facilitando la gestión de cambios.
+Para la ejecución de los cambios, Liquibase emplea el comando \texttt{liquibase update}, que aplica únicamente los \textit{changesets} aún no registrados en la tabla \textbf{DATABASECHANGELOG}. Esta tabla, creada en la base de datos, mantiene un registro detallado de cada \textit{changeset} ejecutado, incluyendo el ID, autor, fecha y checksum, lo que verifica la integridad de los cambios. Este sistema asegura que los cambios no se dupliquen, y permite que Liquibase mantenga una secuencia controlada, respetando dependencias entre objetos para evitar errores. Así, Liquibase optimiza el control de versiones en bases de datos relacionales, integrándose eficazmente en entornos de desarrollo ágiles y facilitando la gestión de cambios.\\
 
 
 Características principales de esta herramienta:
@@ -166,7 +175,6 @@ Características principales de esta herramienta:
 \end{itemize}
 
 \subsection{Flyway}
-
 Flyway es una herramienta de migración de base de datos que utiliza archivos SQL o código Java para aplicar cambios secuenciales y versionados a la base de datos. A diferencia de Liquibase, que emplea archivos de control llamados changelogs, Flyway sigue una convención de nombres simple para versionar los archivos SQL y asegura que se ejecuten en el orden correcto. Los cambios en la base de datos se aplican a través de archivos de migración, los cuales tienen un formato de nombres específico que permite a Flyway controlar el orden en que se aplican. 
 
 Cada archivo de migración comienza con un prefijo \textit{V} seguido de un número de versión por ejemplo, \texttt{V1\_\_, V2\_\_, etc.}, lo que asegura que los cambios se ejecuten secuencialmente en función del número de versión. Flyway también soporta correcciones a través de archivos especiales que comienzan con \texttt{R\_\_} en lugar de \texttt{V\_\_}, lo que permite aplicar cambios repetidos como en el caso de vistas y funciones.
@@ -216,74 +224,47 @@ De manera similar, Flyway se puede integrar en el pipeline para gestionar las mi
 Este archivo de configuración de GitHub Actions muestra cómo Flyway valida y aplica migraciones en los entornos de prueba y producción, siguiendo un proceso similar al de Liquibase para garantizar que los cambios de base de datos se gestionen de manera controlada y automática.
 
 \subsection{SQL Linter}
-
 Un SQL linter es una herramienta diseñada para analizar el código SQL y detectar posibles errores, inconsistencias o malas prácticas antes de que se ejecuten en la base de datos. Al igual que los linters utilizados en otros lenguajes de programación, un linter de SQL ayuda a mejorar la calidad del código, asegurando que se adhiera a los estándares de codificación establecidos y que sea fácil de mantener y entender. El uso de un linter en los proyectos de bases de datos es crucial, ya que garantiza que el código SQL esté optimizado, siga convenciones predefinidas, y evite errores comunes como errores de sintaxis, inconsistencias y malas prácticas.
 
 En esta solución se propone utilizar \texttt{SQLFluff}, un linter extensible y configurable para SQL, ideal para proyectos que involucren diversas plataformas de bases de datos como PostgreSQL, MySQL y SQL Server. \texttt{SQLFluff} es una herramienta de código abierto que soporta múltiples dialectos SQL, lo que lo convierte en una opción versátil para entornos con diferentes bases de datos. Su integración en los procesos de desarrollo e implementación asegura que las consultas SQL sigan las mejores prácticas antes de ser enviadas a producción, lo que ayuda a mantener la calidad del código en todo momento. Además, \texttt{SQLFluff} es altamente adaptable, permitiendo la creación de reglas personalizadas que se ajustan a los estándares de codificación específicos de cada equipo o proyecto. Su capacidad para integrarse en pipelines de CI/CD facilita la verificación del código SQL antes del despliegue, garantizando el cumplimiento de las convenciones establecidas. También puede analizar archivos \texttt{.sql}, detectando errores como inconsistencias en mayúsculas, problemas de formato o uso incorrecto de columnas, y ofrece autocorrección para adoptar un estilo uniforme en los proyectos de manera más eficiente.
 
 \subsection{Configuración de SQLFluff}
-
 El primer paso para incorporar \texttt{SQLFluff} es su instalación. Dado que se basa en Python, es recomendable contar con un entorno de desarrollo en Python bien configurado. Una vez asegurado esto, se puede instalar \texttt{SQLFluff} utilizando el gestor de paquetes de Python, \texttt{pip}, mediante el comando \texttt{pip install sqlfluff}. Esto facilita su integración en cualquier flujo de trabajo automatizado. Es importante aclarar que Python no es obligatorio para el uso de \texttt{SQLFluff}, pero es la opción más directa y sencilla.
 
-Para que \texttt{SQLFluff} se comporte de acuerdo con las reglas del proyecto, es necesario un archivo de configuración específico, el cual debe ser llamado \texttt{.sqlfluff} y debe de estar en la raíz del proyecto. Este archivo define aspectos clave como el dialecto de base de datos, la longitud máxima de líneas, el estilo de indentación, entre otros. Dado que estamos utilizando PostgreSQL como base de datos en este proyecto, configuraremos el dialecto para que \texttt{SQLFluff} analice las consultas SQL con las convenciones propias de PostgreSQL. \\ 
+Para que \texttt{SQLFluff} se comporte de acuerdo con las reglas del proyecto, es necesario un archivo de configuración específico, el cual debe ser llamado \texttt{.sqlfluff} y debe de estar en la raíz del proyecto. Este archivo define aspectos clave como el dialecto de base de datos, la longitud máxima de líneas, el estilo de indentación, entre otros. Dado que estamos utilizando PostgreSQL como base de datos en este proyecto, configuraremos el dialecto para que \texttt{SQLFluff} analice las consultas SQL con las convenciones propias de PostgreSQL.
 
-El siguiente es un ejemplo básico del archivo de configuración:
+% El siguiente es un ejemplo básico del archivo de configuración:
 
-\begin{verbatim}
-[sqlfluff]
-dialect = postgres           
-max_line_length = 120
-exclude_rules = L009
-tab_space_size = 4  
-indent_unit = space          
-\end{verbatim}
+% \begin{verbatim}
+% [sqlfluff]
+% dialect = postgres           
+% max_line_length = 120
+% exclude_rules = L009
+% tab_space_size = 4  
+% indent_unit = space          
+% \end{verbatim}
 
-Este archivo garantiza que \texttt{SQLFluff} siga las reglas que mejor se adapten a las necesidades del proyecto y a los estándares definidos para los scripts SQL.
 
 \subsection{Configuración de Pre-Commit}
-
 Para asegurar que ningún script SQL llegue al repositorio con errores de estilo o formato, podemos integrar \texttt{SQLFluff} con \texttt{pre-commit}, de manera que cada vez que un desarrollador intente hacer un commit, el código SQL sea analizado automáticamente. Esto añade una capa adicional de control, asegurando que el código SQL que se integra cumpla con las reglas del proyecto. Para integrar \texttt{pre-commit}, debemos instalarlo utilizando el manejador de paquetes de Python, \texttt{pip}, mediante el comando \texttt{pip install pre-commit}. Luego, se configura un archivo llamado \texttt{.pre-commit-config.yaml} que define los hooks que \texttt{SQLFluff} ejecutará antes de cada commit que se quiera agregar al repositorio.
 
 Esto permite que cada vez que se haga un commit, \texttt{SQLFluff} valide los archivos \texttt{.sql} y, si es posible, corrija automáticamente algunos errores de estilo sin intervención manual. Además, cabe aclarar que \texttt{SQLFluff} puede ejecutarse manualmente sobre los scripts SQL del proyecto utilizando la terminal del sistema. Esto es útil cuando se quiere revisar el código de manera proactiva antes de hacer cualquier cambio significativo. En este caso, el comando para ejecutar la revisión del código sería \texttt{sqlfluff lint <nombre\_del\_archivo.sql>}, y en caso de querer corregir los errores encontrados, se ejecutaría \texttt{sqlfluff fix <nombre\_del\_archivo.sql>}. Si se desea ejecutar la revisión sobre todo el proyecto, solo basta con reemplazar el nombre del archivo por un punto, un ejemplo de esto sería: "\texttt{sqlfluff fix .}".
 
 \subsection{Consideraciones de la implementación}
-
 Ambas herramientas, \texttt{Liquibase} y \texttt{Flyway}, se integran perfectamente en un entorno GitOps con PostgreSQL, proporcionando trazabilidad completa de los cambios en la base de datos. Al utilizar un repositorio Git como la fuente de verdad y un linter para SQL que nos ayude a mantener algunas reglas entre los miembros del equipo de desarrollo, se asegura que cualquier modificación en la base de datos esté bien documentada y pueda ser revisada, probada y desplegada de forma controlada. Además, tanto \texttt{Liquibase} como \texttt{Flyway} mantienen una tabla interna (\texttt{databasechangelog} en \texttt{Liquibase} y \texttt{flyway\_schema\_history} en \texttt{Flyway}) en la base de datos para registrar las migraciones aplicadas. Estas tablas son esenciales para el correcto funcionamiento de los despliegues automatizados, y es importante considerar las capacidades de rollback que ofrecen las herramientas, siendo más flexible en \texttt{Liquibase} que en \texttt{Flyway}, ya que este último depende más de scripts SQL orientados a versiones.
 
 
-\section{Análisis y Resultados}
-En esta sección se presentan los resultados para proporcionar una visión panorámica de los datos obtenidos, a fin de identificar patrones, tendencias y relaciones significativas. Estos resultados constituyen la base para el análisis e interpretación que se abordará en la sección de Discusión. Como se explicó en la sección de Método, se aplicaron encuestas y entrevistas a profesionales y expertos en el campo del desarrollo y administración de bases de datos. Las encuestas fueron contestadas por un total de 45 participantes, logrando una tasa de respuesta del 80\%, lo cual es considerado satisfactorio para estudios de este tipo (Universidad de Costa Rica, 2022; Hernández, 2021). Para asegurar la confiabilidad del instrumento, se calculó el coeficiente Alpha de Cronbach, obteniendo un valor de 0.88. Este resultado indica una alta consistencia interna del instrumento, de acuerdo con los estándares de investigación aplicados en ingeniería de software (Smith, 2019).
+\section{Conclusiones y Trabajos Futuros}
+Este proyecto ha explorado la implementación de un sistema de control de versiones en bases de datos altamente cambiantes, evaluando herramientas como Liquibase y Flyway en el contexto de metodologías ágiles y prácticas de CI/CD. A continuación, se presentan las conclusiones obtenidas y algunas recomendaciones para futuras investigaciones.
 
-La Figura \ref{fig:figure1} muestra los resultados de la primera pregunta de la encuesta, formulada para evaluar el nivel de familiaridad de los participantes con prácticas de versionado en bases de datos antes de implementar la arquitectura propuesta. Los resultados revelan que un 64\% de los encuestados se sentía inseguro sobre sus habilidades previas en este ámbito, destacando la importancia de una solución estructurada para el control de versiones.
+\subsection{Conclusiones}
+La implementación de control de versiones en bases de datos es fundamental en entornos ágiles y CI/CD, ya que mejora la trazabilidad de cambios y la colaboración en el equipo de desarrollo. La comparación entre Liquibase y Flyway mostró que ambas herramientas son efectivas para gestionar cambios en bases de datos, cada una con sus ventajas. Liquibase es robusto en soporte para múltiples bases de datos y cambios complejos, mientras que Flyway ofrece una curva de aprendizaje más sencilla, siendo ideal para equipos menos experimentados. Este proyecto concluye que la adopción de cualquiera de estas herramientas, en combinación con prácticas ágiles, incrementa la eficiencia en la implementación de cambios en bases de datos.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.48\textwidth]{images/figure1.png}
-    \caption{Nivel de confianza en habilidades de versionado de bases de datos antes de la implementación}
-    \label{fig:figure1}
-\end{figure}
+\subsection{Trabajos Futuros}
+Este estudio abre varias áreas de investigación futura. Una línea interesante es la automatización avanzada de la integración de bases de datos en entornos CI/CD, explorando cómo tecnologías emergentes, como inteligencia artificial y machine learning, pueden mejorar la predicción de conflictos en cambios. Además, sería valioso estudiar la adaptación del control de versiones a bases de datos no relacionales y distribuidas, como MongoDB o Cassandra, dada la creciente popularidad de estos sistemas. Finalmente, es importante investigar el impacto cultural y organizacional de adoptar control de versiones en bases de datos, considerando los ajustes en mentalidad y procesos que podrían ser necesarios para una implementación efectiva en entornos reales.
 
 
-
-
-\section{Solution proposal}
-The platform has demonstrated strong performance in certain areas such as "On Input" and "Minimum Target Size", indicating effective user input handling and satisfactory target size across all sections. However, there are areas that require improvement, particularly in "Use of Color" and "Focus Not Obscured (Minimum)". To enhance the user experience, it is recommended to revisit the design elements related to color usage and focus visibility. This may involve adopting a more contrasting color scheme to improve readability and ensuring that the focus is not obscured during navigation. 
-
-In addition to these improvements, it would be beneficial to implement a comprehensive training program for the faculty and staff at Universidad CENFOTEC. The program could focus on the importance of web accessibility and provide practical guidance on how to create and maintain accessible content. Incorporating user feedback into the platform's development process can also ensure that it evolves to meet the changing needs of its users. Regular accessibility audits can be conducted to identify any new issues and monitor the effectiveness of implemented solutions. Furthermore, considering partnerships with accessibility consultants or services could provide valuable expertise and resources. By fostering an institutional culture that values accessibility, Universidad CENFOTEC can ensure that its Moodle platform remains an effective and inclusive tool for learning.
-
-
-
-\section{Conclusions and future work}
-\begin{itemize}
-    \item The importance of e-learning in the educational process is steadily increasing, necessitating that universities provide comprehensive facilities for both students and teachers to access knowledge through this medium. Ensuring accessibility across all aspects of the learning management system (LMS) platform is essential to enable seamless interaction with tools, modules, peers, and instructors.
-    \item Moodle boasts commendable accessibility features, particularly in terms of customizable design elements, style options, selection editors, and alert configurations. However, there are notable gaps in accessibility considerations, particularly concerning session timeout protocols and default page settings.
-    \item Moodle demonstrates strong adherence to accessibility criteria in various aspects such as page titles, breadcrumbs, navigation bars and menus, as well as link types and texts, ensuring visibility and navigational clarity for users with diverse needs.
-\end{itemize}
-Moodle has good accessibility features regarding customizing the design, style, selection editor, alert types, saving current state, but it does not consider accessibility criteria with respect to session timeout and default page.  
-Moodle considered a good accessibility criteria with respect to page title, breadcrumbs, navigation bars and menu, link type and link text, visible.
-
-It is recommended that Universidad Cenfotec take  into account the results and accessibility evaluation presented in this research work in order to improve or redesign their website. At the same time, it is recommended to keep in mind the implementing the WCAG 2.2 web content accessibility guidelines, will be able to have more inclusive websites, providing equal opportunities. to all people and eliminate discrimination and put the page in priority google searchs.
-
+\renewcommand{\refname}{Referencias}
 \nocite{}
 \bibliography{references}
 \bibliographystyle{IEEEtran}
