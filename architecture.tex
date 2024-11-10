@@ -50,7 +50,7 @@ En el desarrollo de software moderno, las bases de datos desempeñan un rol fund
 
 Este proyecto aborda la problemática de la falta de una arquitectura robusta de control de versiones para bases de datos evolutivas, lo cual afecta la calidad y eficiencia de los procesos de CI/CD en las organizaciones. La propuesta tiene como objetivo desarrollar una arquitectura de control de versiones específica para bases de datos que evolucionan constantemente, buscando reducir riesgos de errores y conflictos en los cambios, mejorar la consistencia de los datos y facilitar la integración rápida y frecuente de nuevas características. Además, esta solución permitirá mantener un registro exhaustivo de todos los cambios, apoyando tanto la implementación de mejoras como la corrección de errores.
 
-Desde el punto de vista técnico, herramientas como Liquibase y Flyway ofrecen funcionalidades clave que pueden adaptarse y optimizarse para satisfacer las necesidades de control de versiones en bases de datos. Operativamente, el proyecto es viable, ya que muchas organizaciones ya emplean prácticas de control de versiones en sus procesos de CI/CD, y la integración de una arquitectura específica para bases de datos no requerirá cambios disruptivos, sino mejoras y adaptaciones efectivas.
+Desde el punto de vista técnico, herramientas como \\Liquibase y Flyway ofrecen funcionalidades clave que pueden adaptarse y optimizarse para satisfacer las necesidades de control de versiones en bases de datos. Operativamente, el proyecto es viable, ya que muchas organizaciones ya emplean prácticas de control de versiones en sus procesos de CI/CD, y la integración de una arquitectura específica para bases de datos no requerirá cambios disruptivos, sino mejoras y adaptaciones efectivas.
 
 Conforme al paradigma Objetivo-Pregunta-Métrica (GQM) \cite{Basili1992}, el objetivo de esta investigación se puede enunciar de la siguiente manera:
 
@@ -105,13 +105,13 @@ Dada la investigacion realizada se aprecia como muchos autores consideran que el
 En paralelo, la investigación sobre la integración de bases de datos en entornos CI/CD ha ganado relevancia, como lo demuestra el trabajo de Fluri et al. (2023) \cite{fluri2023measuring}, que mostró cómo la automatización de la integración y despliegue de bases de datos contribuye a la estabilidad y eficiencia de los proyectos de software. Sin embargo, a pesar de estos avances, sigue siendo un desafío integrar las bases de datos en los ciclos ágiles de manera eficiente y con control adecuado de versiones. Así, la evolución de esquemas en sistemas de bases de datos, descrita por Roddick (1992) \cite{roddick1992schema}, sigue siendo una cuestión crucial, ya que permite que las bases de datos se adapten a los cambios del mundo real mientras mantienen la integridad de los datos. Estos antecedentes destacan la importancia de crear una arquitectura sólida de control de versiones para bases de datos.
 
 \section{Metodología}
-La metodología de investigación adoptada en esta propuesta será de enfoque mixto, integrando tanto técnicas cualitativas como cuantitativas. Según Monje (2011) \cite{Monje2011}, el enfoque mixto permite abordar de manera integral los fenómenos bajo estudio, ofreciendo una comprensión más profunda al combinar la recolección de datos descriptivos y numéricos. Este enfoque se utilizará para explorar las percepciones y prácticas relacionadas con el control de versiones en bases de datos evolutivas, utilizando técnicas como entrevistas semiestructuradas y análisis documental en el caso cualitativo, y encuestas y experimentos controlados en el caso cuantitativo.
+La metodología de investigación de esta propuesta adopta un enfoque mixto, integrando tanto técnicas cualitativas como cuantitativas. Según Monje (2011) \cite{Monje2011}, el enfoque mixto permite abordar de manera integral los fenómenos bajo estudio, ofreciendo una comprensión más profunda al combinar la recolección de datos descriptivos y numéricos. Este enfoque se utilizará para explorar las percepciones y prácticas relacionadas con el control de versiones en bases de datos evolutivas, utilizando técnicas como entrevistas semiestructuradas y análisis documental en el caso cualitativo, y encuestas y experimentos controlados en el caso cuantitativo.
 
-La metodología cualitativa se utilizará para obtener una comprensión profunda de las experiencias y desafíos de los desarrolladores y administradores de bases de datos en relación con el control de versiones. Para ello, se llevarán a cabo entrevistas semiestructuradas con expertos en el área de desarrollo de software y administración de bases de datos, así como un análisis documental de los registros de cambios y manuales de proyectos reales. La selección de los participantes se realizará mediante un muestreo intencional, y los datos obtenidos serán analizados a través de un enfoque de análisis temático, permitiendo identificar patrones recurrentes en las prácticas de control de versiones.
+La metodología cualitativa permite obtener una comprensión profunda de las experiencias y desafíos de los desarrolladores y administradores de bases de datos en relación con el control de versiones. Para ello, se llevaron a cabo entrevistas semiestructuradas con expertos en el área de desarrollo de software y administración de bases de datos, así como un análisis documental de los registros de cambios y manuales de proyectos reales. La selección de los participantes se realiza mediante un muestreo intencional, y los datos obtenidos se analizan a través de un enfoque de análisis temático, permitiendo identificar patrones recurrentes en las prácticas de control de versiones.
 
-Por otro lado, el enfoque cuantitativo se aplicará para medir y analizar los datos numéricos relacionados con la implementación y el rendimiento de las prácticas de control de versiones en bases de datos. A través de encuestas estructuradas, se recolectarán datos sobre la frecuencia, efectividad y desafíos de las prácticas de control de versiones, mientras que los experimentos controlados permitirán evaluar el rendimiento y costo técnico de herramientas como Liquibase y Flyway. Los datos recolectados serán analizados utilizando técnicas estadísticas descriptivas e inferenciales, permitiendo obtener conclusiones más objetivas y generalizables sobre las mejores prácticas en este campo.
+Por otro lado, el enfoque cuantitativo se aplica para medir y analizar los datos numéricos relacionados con la implementación y el rendimiento de las prácticas de control de versiones en bases de datos. A través de encuestas estructuradas, se recolectaron datos sobre la frecuencia, efectividad y desafíos de las prácticas de control de versiones, mientras que los experimentos controlados permitirán evaluar el rendimiento y costo técnico de herramientas como Liquibase y Flyway. Los datos recolectados se analizan utilizando técnicas estadísticas descriptivas e inferenciales, permitiendo obtener conclusiones más objetivas y generalizables sobre las mejores prácticas en este campo.
 
-La integración de ambos enfoques cualitativos y cuantitativos permitirá obtener una visión holística del fenómeno investigado. La triangulación de los datos cualitativos y cuantitativos se llevará a cabo mediante la comparación de los resultados de las entrevistas y las encuestas, lo que permitirá identificar convergencias y divergencias en los hallazgos. Además, se realizarán análisis comparativos entre los resultados obtenidos mediante ambos métodos para validar y complementar los hallazgos, ofreciendo así una comprensión más robusta y completa del problema de investigación.
+La integración de ambos enfoques cualitativos y cuantitativos permite obtener una visión holística del fenómeno investigado. La triangulación de los datos cualitativos y cuantitativos se llevo a cabo mediante la comparación de los resultados de las entrevistas y las encuestas, lo que permite identificar convergencias y divergencias en los hallazgos. Además, se realizaron análisis comparativos entre los resultados obtenidos mediante ambos métodos para validar y complementar los hallazgos, ofreciendo así una comprensión más robusta y completa del problema de investigación.
 
 El uso del enfoque mixto se justifica por la complejidad del tema investigado. Esta metodología permite abordar tanto los aspectos técnicos como los humanos del control de versiones en bases de datos evolutivas, lo que proporciona una base sólida de datos empíricos. Estos datos no solo permitirán obtener conclusiones sobre el estado actual de las prácticas en este campo, sino también ofrecer recomendaciones prácticas basadas en evidencia para mejorar las prácticas de control de versiones en la gestión de bases de datos.
 
@@ -125,14 +125,6 @@ El uso del enfoque mixto se justifica por la complejidad del tema investigado. E
 %     \item ¿Ha pensado en automatizar el despliegue de cambios en la base de datos? 
 %     \item ¿Considera que implementar herramientas como \\Liquibase o Flyway podría mejorar de alguna forma el proceso de implementación de cambios en bases de datos?
 % \end{enumerate}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.48\textwidth]{images/figure1.png}
-    \caption{Nivel de confianza en habilidades de versionado de bases de datos antes de la implementación}
-    \label{fig:figure1}
-\end{figure}
-
     
 \section{Objetivo}
 El objetivo general de este proyecto es proponer una arquitectura de control de versiones para bases de datos relacionales evolutivas que facilite la gestión de cambios, mejore la eficiencia y la seguridad de los procesos de CI/CD. La elección de la taxonomía de Bloom (1956) se debe a su amplia documentación y aplicabilidad, ya que su estructuración jerárquica permite definir los objetivos de manera clara y ordenada, desde los más generales hasta los más específicos. Esto facilita una alineación adecuada con los principios del control de versiones en bases de datos dentro de entornos ágiles de desarrollo.
@@ -154,14 +146,50 @@ A continuacion se describen las dos herramientas antes mencionadas para esta pro
 \subsection{Liquibase}
 Liquibase es una herramienta de código abierto ampliamente utilizada para el control de versiones en bases de datos. Ofrece funcionalidades clave, como la compatibilidad con bases de datos SQL y NoSQL, la reversión de cambios (rollback) y la integración con herramientas de CI/CD como Jenkins y GitHub Actions. Estas características permiten una gestión eficaz de las modificaciones en el modelo de datos, asegurando la trazabilidad y minimizando el riesgo de errores en los entornos de desarrollo, prueba y producción.\\ Además, Liquibase permite definir cambios en formatos como XML, YAML, JSON o SQL, lo que brinda flexibilidad a los equipos de desarrollo y facilita su integración en proyectos de diferentes escalas.
 
-Para organizar los cambios, Liquibase utiliza un archivo principal denominado \textit{changelog} que contiene una lista cronológica de cambios estructurada en \textit{changesets}. Cada \textit{changeset} es una unidad atómica de cambio que incluye un identificador único, el autor y las instrucciones para realizar el cambio, como sentencias SQL o referencias a archivos SQL externos. En este proyecto, el formato YAML ha sido seleccionado para el \textit{changelog} por su simplicidad y claridad. A través del \textit{changelog}, Liquibase asegura que los cambios se apliquen de manera ordenada, controlada y consistente, particularmente en entornos de CI/CD, reduciendo el riesgo de conflictos y facilitando la implementación de actualizaciones.
+Para organizar los cambios, Liquibase utiliza un archivo principal denominado \textit{changelog}, que contiene una lista cronológica de cambios estructurada en \textit{changesets} como podemos verlo en la Figura \ref{fig:changelogFig}. Cada \textit{changeset} es una unidad atómica de cambio que incluye un identificador único, el autor y las instrucciones para realizar el cambio, como sentencias SQL o referencias a archivos SQL externos. En este proyecto, se utiliza el formato YAML para el \textit{changelog} por su simplicidad y claridad. A través del \textit{changelog}, Liquibase asegura que los cambios se apliquen de manera ordenada, controlada y consistente, particularmente en entornos de CI/CD, reduciendo el riesgo de conflictos y facilitando la implementación de actualizaciones.
 
-La configuración del proyecto con Liquibase requiere un archivo \texttt{liquibase.properties} que especifica la conexión a la base de datos y el \textit{changelog} principal. Este enfoque también permite que los desarrolladores y DBAs trabajen directamente sobre archivos \texttt{.sql} para realizar modificaciones, aprovechando la trazabilidad de Liquibase. En algunos casos, como en los scripts de datos que necesitan ejecutarse múltiples veces, es posible configurar el \textit{changeset} con la opción \texttt{runOnChange}, lo que permite ejecutar el script cada vez que se despliegue.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/changelogExample.png}
+    \caption{Ejemplo de Changelog de Liquibase}
+    \label{fig:changelogFig}
+\end{figure}
+
+La configuración del proyecto con Liquibase requiere un archivo \texttt{liquibase.properties} que especifica la conexión a la base de datos y el \textit{changelog} principal en el cual se iran agregando los cambios que queramos ejecutar en el proyecto, como e puede ver en la Figura \ref{fig:liquibasePropertiesExample}. Este enfoque también permite que los desarrolladores y DBAs trabajen directamente sobre archivos \texttt{.sql} para realizar modificaciones, aprovechando la trazabilidad de Liquibase. En algunos casos, como en los scripts de datos que necesitan ejecutarse múltiples veces, es posible configurar el \textit{changeset} con la opción \texttt{runOnChange}, lo que permite ejecutar el script cada vez que se despliegue.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/liquibasePropertiesExample.png}
+    \caption{Ejemplo del archivo de configuración "liquibase.properties" de Liquibase}
+    \label{fig:liquibasePropertiesExample}
+\end{figure}
 
 Para la ejecución de los cambios, Liquibase emplea el comando \texttt{liquibase update}, que aplica únicamente los \textit{changesets} aún no registrados en la tabla \textbf{DATABASECHANGELOG}. Esta tabla, creada en la base de datos, mantiene un registro detallado de cada \textit{changeset} ejecutado, incluyendo el ID, autor, fecha y checksum, lo que verifica la integridad de los cambios. Este sistema asegura que los cambios no se dupliquen, y permite que Liquibase mantenga una secuencia controlada, respetando dependencias entre objetos para evitar errores. Así, Liquibase optimiza el control de versiones en bases de datos relacionales, integrándose eficazmente en entornos de desarrollo ágiles y facilitando la gestión de cambios.\\
 
+La organización efectiva de los cambios en la base de datos de un proyecto de control de versiones con Liquibase requiere una jerarquía de carpetas clara y estandarizada, como se ilustra en la Figura \ref{fig:folderHerarchyLiquibase}. Esta estructura permite gestionar de manera ordenada los archivos modificables e inmutables, y facilita la trazabilidad de los cambios al dividir el proyecto en fases, sprints y equipos (squads). A continuación, se presenta la propuesta de jerarquía de carpetas para un proyecto bajo metodología ágil, estructurada en fases y sprints, donde cada fase representa una iteración de desarrollo.
 
-Características principales de esta herramienta:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/folderHerarchyLiquibase.png}
+    \caption{Ejemplo de jerarquía de carpetas propuesta para Liquibase}
+    \label{fig:folderHerarchyLiquibase}
+\end{figure}
+
+ La siguiente descripción detalla las carpetas principales y su función en el control de versiones utilizando Liquibase:
+
+\begin{itemize}
+    \item \textbf{changelogs/}: Carpeta principal para todos los archivos de cambios. Contiene todos los changelogs y los archivos SQL que están directamente relacionados con los cambios aplicados a la base de datos. Es el corazón de la estructura de cambios en tu base de datos.
+    
+    \item \textbf{phases/}: Dentro de esta carpeta se organizan los cambios en subcarpetas que representan las fases y los sprints del proyecto. El formato utilizado para nombrar cada subcarpeta es \texttt{phaseX-sprint-Y}, donde \texttt{X} representa el número de la fase del proyecto y \texttt{Y} representa el número del sprint.
+    
+    \item \textbf{squadX/}: Cada fase y sprint tendrá su propio subdirectorio para los cambios realizados por los squads. En estas carpetas se almacenarán los archivos SQL correspondientes a los cambios específicos que realiza cada equipo.
+    
+    \item \textbf{immutable/}: Carpeta destinada a los archivos no modificables. Aquí se almacenan los cambios iniciales y los scripts que, una vez ejecutados, no deben alterarse. Estos archivos representan una parte crítica de la historia del proyecto y son inmutables para asegurar que el historial de la base de datos se mantenga íntegro.
+    
+    \item \textbf{mutable/}: Aquí se almacenan los objetos que pueden modificarse y recrearse a lo largo del tiempo, como vistas y funciones. Estos objetos son esenciales para la evolución de la base de datos. Su naturaleza mutable implica que pueden ser recreados en múltiples sprints dependiendo de las necesidades del proyecto. Las vistas se almacenan en el subdirectorio \texttt{mutable/views/}, mientras que las funciones de la base de datos se encuentran en \texttt{mutable/functions/}.
+\end{itemize}
+
+Características principales de Liquibase:
 
 \begin{itemize}
     \item \textbf{Compatibilidad con múltiples bases de datos}: Soporta bases de datos SQL y NoSQL, permitiendo su uso en entornos con diferentes sistemas de gestión de bases de datos.
@@ -179,9 +207,23 @@ Flyway es una herramienta de migración de base de datos que utiliza archivos SQ
 
 Cada archivo de migración comienza con un prefijo \textit{V} seguido de un número de versión por ejemplo, \texttt{V1\_\_, V2\_\_, etc.}, lo que asegura que los cambios se ejecuten secuencialmente en función del número de versión. Flyway también soporta correcciones a través de archivos especiales que comienzan con \texttt{R\_\_} en lugar de \texttt{V\_\_}, lo que permite aplicar cambios repetidos como en el caso de vistas y funciones.
 
-La configuración de Flyway requiere el archivo llamado \texttt{flyway.conf}, donde se especifican parámetros clave como la conexión a la base de datos, el directorio donde se encuentran los scripts de migración, y otras configuraciones relevantes. Estos parámetros incluyen la URL de la base de datos, las credenciales de acceso, el esquema de destino y la ubicación de los archivos de migración. Además, el parámetro \texttt{flyway.baselineOnMigrate} permite establecer un punto de partida para bases de datos que ya contienen datos, facilitando la integración de Flyway en proyectos existentes.
+La configuración de Flyway requiere el archivo llamado \texttt{flyway.conf} Figura \ref{fig:flywayPropertiesExample}, donde se especifican parámetros clave como la conexión a la base de datos, el directorio donde se encuentran los scripts de migración, y otras configuraciones relevantes. Estos parámetros incluyen la URL de la base de datos, las credenciales de acceso, el esquema de destino y la ubicación de los archivos de migración. Además, el parámetro \texttt{flyway.baselineOnMigrate} permite establecer un punto de partida para bases de datos que ya contienen datos, facilitando la integración de Flyway en proyectos existentes.
 
-La jerarquía de carpetas en Flyway es sencilla, siguiendo una convención en la que los archivos de migración versionados comienzan con \texttt{V\_\_} y los archivos de migración repetibles con \texttt{R\_\_}. Los archivos \texttt{V\_\_} se aplican secuencialmente según el número de versión, mientras que los archivos \texttt{R\_\_} son ejecutados cada vez que se detectan cambios. Esta estructura organizada facilita la gestión de las migraciones y asegura que se apliquen en el orden correcto.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/flywayPropertiesExample.png}
+    \caption{Ejemplo de archivo de configuración de Flyway}
+    \label{fig:flywayPropertiesExample}
+\end{figure}
+
+La jerarquía de carpetas en Flyway es sencilla como se muestra en la Figura \ref{fig:folderHerarchyFlyway}, siguiendo una convención en la que los archivos de migración versionados comienzan con \texttt{V\_\_} y los archivos de migración repetibles con \texttt{R\_\_}. Los archivos \texttt{V\_\_} se aplican secuencialmente según el número de versión, mientras que los archivos \texttt{R\_\_} son ejecutados cada vez que se detectan cambios. Esta estructura organizada facilita la gestión de las migraciones y asegura que se apliquen en el orden correcto.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/folderHerarchyFlyway.png}
+    \caption{Ejemplo de jerarquía de carpetas propuesta para Flyway}
+    \label{fig:folderHerarchyFlyway}
+\end{figure}
 
 Los archivos SQL son fundamentales en Flyway para gestionar las migraciones. Estos archivos contienen los scripts que Flyway ejecuta secuencialmente para realizar los cambios en la base de datos. La convención de nombres de los archivos garantiza que se sigan las secuencias adecuadas para las migraciones versionadas y repetibles. Cada archivo SQL es ejecutado una sola vez, en el caso de las migraciones versionadas, y repetidamente, en el caso de las migraciones repetibles.
 
@@ -194,16 +236,15 @@ Las principales características de Flyway son las siguientes:
     \item \textbf{Ejecución secuencial de migraciones}: Los archivos de migración son ejecutados en orden según su número de versión.
     \item \textbf{Soporte para correcciones}: Los archivos de corrección (\texttt{R\_\_}) se ejecutan repetidamente, lo cual es útil para cambios frecuentes como en vistas y funciones.
     \item \textbf{Registro de historial de migraciones}: Flyway mantiene una tabla llamada \texttt{flyway\_schema\_history} donde guarda información sobre todas las migraciones aplicadas, incluyendo la versión, descripción, fecha de ejecución y resultado.
-    \item \textbf{Configuración mediante \texttt{flyway.conf}}: En el archivo de configuración \texttt{flyway.conf} se especifican parámetros clave como la URL de la base de datos, las credenciales de acceso, el esquema de destino y la ubicación de los archivos de migración.
-    \item \textbf{Migraciones aplicadas automáticamente}: Flyway aplica todas las migraciones pendientes al ejecutar el comando \texttt{flyway migrate}.
-    \item \textbf{Comandos útiles}: Flyway incluye comandos como \texttt{flyway migrate} para aplicar migraciones, \texttt{flyway info} para ver el estado de las migraciones y \texttt{flyway repair} para reparar la tabla de historial.
-    \item \textbf{Soporte para bases de datos existentes}: Flyway permite establecer un punto de partida para bases de datos que ya contienen datos mediante el parámetro \texttt{flyway.baselineOnMigrate}.
+    \item \textbf{Configuración mediante flyway.conf}: En el archivo de configuración \texttt{flyway.conf} se especifican parámetros clave como la URL de la base de datos, las credenciales de acceso, el esquema de destino y la ubicación de los archivos de migración.
+    \item \textbf{Migraciones aplicadas automáticamente}: Flyway aplica todas las migraciones pendientes al ejecutar el comando "\texttt{flyway migrate}".
+    \item \textbf{Soporte para bases de datos existentes}: Flyway permite establecer un punto de partida para bases de datos que ya contienen datos mediante el parámetro "\texttt{flyway.baselineOnMigrate}".
     \item \textbf{Integración con CI/CD}: Flyway se puede integrar fácilmente en pipelines de CI/CD para automatizar el proceso de migración de bases de datos.
 \end{itemize}
 
 
 \subsection{GitOps para bases de datos relacionales}
-ncronización de estados declarativos almacenados en un repositorio Git con los entornos de producción. En el caso de bases de datos, aplicar GitOps significa gestionar los cambios de esquema y migraciones a través de pipelines de CI/CD, asegurando que los despliegues de la base de datos sean consistentes, seguros y completamente automatizados. Este enfoque permite que las migraciones de bases de datos sean tratadas como código, lo que mejora la trazabilidad, la consistencia y la eficiencia en los despliegues.GitOps es un enfoque que automatiza la gestión de infraestructura y aplicaciones mediante la si.\\
+En el caso de bases de datos, aplicar GitOps significa gestionar los cambios de esquema y migraciones a través de pipelines de CI/CD, asegurando que los despliegues de la base de datos sean consistentes, seguros y completamente automatizados. Este enfoque permite que las migraciones de bases de datos sean tratadas como código, lo que mejora la trazabilidad, la consistencia y la eficiencia en los despliegues.GitOps es un enfoque que automatiza la gestión de infraestructura y aplicaciones mediante la sincronización de estados declarativos almacenados en un repositorio Git con los entornos de producción.\\ 
 El flujo GitOps propuesto para la base de datos sigue los siguientes pasos:
 
 \begin{itemize}
@@ -212,43 +253,36 @@ El flujo GitOps propuesto para la base de datos sigue los siguientes pasos:
     \item \textbf{Despliegue Continuo (CD):} Si las pruebas CI son exitosas, el pipeline de CD es activado y los cambios de la base de datos se despliegan de forma automatizada en entornos como staging y producción. Dependiendo de la herramienta utilizada (Liquibase o Flyway), se ejecutarán las migraciones correspondientes para garantizar que la base de datos esté sincronizada con el estado actual del código en el repositorio Git.
 \end{itemize}
 
-\subsection{Liquibase en un Pipeline de CI/CD}
-Para integrar Liquibase en un pipeline CI/CD, se pueden utilizar archivos de configuración como \texttt{.gitlab-ci.yml} o \texttt{.github/workflows/cicd.yml} donde se definen los pasos para validar los changelogs, aplicar los cambios y verificar el estado de la base de datos. Un ejemplo de configuración de GitHub Action para 
-
-Este flujo de trabajo valida, prueba y despliega las migraciones utilizando Liquibase en el pipeline CI/CD, aplicando primero los cambios en un entorno de prueba y luego en el entorno de producción si las pruebas son exitosas.
-
-\subsection{Flyway en un Pipeline de CI/CD}
-De manera similar, Flyway se puede integrar en el pipeline para gestionar las migraciones, con la configuración de GitHub en el archivo \texttt{.github/workflows/cicd.yml}. Un ejemplo de configuración de GitHub Action para Flyway se presenta a continuación:
-
-
-Este archivo de configuración de GitHub Actions muestra cómo Flyway valida y aplica migraciones en los entornos de prueba y producción, siguiendo un proceso similar al de Liquibase para garantizar que los cambios de base de datos se gestionen de manera controlada y automática.
-
 \subsection{SQL Linter}
 Un SQL linter es una herramienta diseñada para analizar el código SQL y detectar posibles errores, inconsistencias o malas prácticas antes de que se ejecuten en la base de datos. Al igual que los linters utilizados en otros lenguajes de programación, un linter de SQL ayuda a mejorar la calidad del código, asegurando que se adhiera a los estándares de codificación establecidos y que sea fácil de mantener y entender. El uso de un linter en los proyectos de bases de datos es crucial, ya que garantiza que el código SQL esté optimizado, siga convenciones predefinidas, y evite errores comunes como errores de sintaxis, inconsistencias y malas prácticas.
 
 En esta solución se propone utilizar \texttt{SQLFluff}, un linter extensible y configurable para SQL, ideal para proyectos que involucren diversas plataformas de bases de datos como PostgreSQL, MySQL y SQL Server. \texttt{SQLFluff} es una herramienta de código abierto que soporta múltiples dialectos SQL, lo que lo convierte en una opción versátil para entornos con diferentes bases de datos. Su integración en los procesos de desarrollo e implementación asegura que las consultas SQL sigan las mejores prácticas antes de ser enviadas a producción, lo que ayuda a mantener la calidad del código en todo momento. Además, \texttt{SQLFluff} es altamente adaptable, permitiendo la creación de reglas personalizadas que se ajustan a los estándares de codificación específicos de cada equipo o proyecto. Su capacidad para integrarse en pipelines de CI/CD facilita la verificación del código SQL antes del despliegue, garantizando el cumplimiento de las convenciones establecidas. También puede analizar archivos \texttt{.sql}, detectando errores como inconsistencias en mayúsculas, problemas de formato o uso incorrecto de columnas, y ofrece autocorrección para adoptar un estilo uniforme en los proyectos de manera más eficiente.
 
 \subsection{Configuración de SQLFluff}
-El primer paso para incorporar \texttt{SQLFluff} es su instalación. Dado que se basa en Python, es recomendable contar con un entorno de desarrollo en Python bien configurado. Una vez asegurado esto, se puede instalar \texttt{SQLFluff} utilizando el gestor de paquetes de Python, \texttt{pip}, mediante el comando \texttt{pip install sqlfluff}. Esto facilita su integración en cualquier flujo de trabajo automatizado. Es importante aclarar que Python no es obligatorio para el uso de \texttt{SQLFluff}, pero es la opción más directa y sencilla.
+El primer paso para incorporar \texttt{SQLFluff} es su instalación. Dado que se basa en Python, es recomendable contar con un entorno de desarrollo en Python bien configurado. Una vez asegurado esto, se puede instalar \texttt{SQLFluff} utilizando el gestor de paquetes de Python "\texttt{pip}", mediante el comando \texttt{pip install sqlfluff}. Esto facilita su integración en cualquier flujo de trabajo automatizado. Es importante aclarar que Python no es obligatorio para el uso de \texttt{SQLFluff}, pero es la opción más directa y sencilla.
 
-Para que \texttt{SQLFluff} se comporte de acuerdo con las reglas del proyecto, es necesario un archivo de configuración específico, el cual debe ser llamado \texttt{.sqlfluff} y debe de estar en la raíz del proyecto. Este archivo define aspectos clave como el dialecto de base de datos, la longitud máxima de líneas, el estilo de indentación, entre otros. Dado que estamos utilizando PostgreSQL como base de datos en este proyecto, configuraremos el dialecto para que \texttt{SQLFluff} analice las consultas SQL con las convenciones propias de PostgreSQL.
+Para que \texttt{SQLFluff} se comporte de acuerdo con las reglas del proyecto, es necesario un archivo de configuración específico, el cual debe ser llamado \texttt{.sqlfluff} y debe de estar en la raíz del proyecto. Este archivo define aspectos clave como el dialecto de base de datos, la longitud máxima de líneas, el estilo de indentación, entre otros. En la Figura \ref{fig:sqlFluffConfigExample}, se muestra un ejemplo de la configuración de SQLFluff para un proyecto que usa PostgreSQL como base de datos:
 
-% El siguiente es un ejemplo básico del archivo de configuración:
-
-% \begin{verbatim}
-% [sqlfluff]
-% dialect = postgres           
-% max_line_length = 120
-% exclude_rules = L009
-% tab_space_size = 4  
-% indent_unit = space          
-% \end{verbatim}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.42\textwidth]{images/sqlFluffConfigExample.png}
+    \caption{Ejemplo de archivo de configuración para sqlfluff}
+    \label{fig:sqlFluffConfigExample}
+\end{figure}
 
 
 \subsection{Configuración de Pre-Commit}
-Para asegurar que ningún script SQL llegue al repositorio con errores de estilo o formato, podemos integrar \texttt{SQLFluff} con \texttt{pre-commit}, de manera que cada vez que un desarrollador intente hacer un commit, el código SQL sea analizado automáticamente. Esto añade una capa adicional de control, asegurando que el código SQL que se integra cumpla con las reglas del proyecto. Para integrar \texttt{pre-commit}, debemos instalarlo utilizando el manejador de paquetes de Python, \texttt{pip}, mediante el comando \texttt{pip install pre-commit}. Luego, se configura un archivo llamado \texttt{.pre-commit-config.yaml} que define los hooks que \texttt{SQLFluff} ejecutará antes de cada commit que se quiera agregar al repositorio.
+Para asegurar que ningún script SQL llegue al repositorio con errores de estilo o formato, podemos integrar \texttt{SQLFluff} con \texttt{pre-commit}, de manera que cada vez que un desarrollador intente hacer un commit, el código SQL sea analizado automáticamente. Esto añade una capa adicional de control, asegurando que el código SQL que se integra cumpla con las reglas del proyecto. Para integrar \texttt{pre-commit}, debemos instalarlo utilizando el manejador de paquetes de Python, \texttt{pip}, mediante el comando \texttt{pip install pre-commit}. Luego, se configura un archivo llamado \texttt{.pre-commit-config.yaml}, Figura \ref{fig:precommitExample} que define los hooks que \texttt{SQLFluff} ejecutará antes de cada commit que se quiera agregar al repositorio.
 
-Esto permite que cada vez que se haga un commit, \texttt{SQLFluff} valide los archivos \texttt{.sql} y, si es posible, corrija automáticamente algunos errores de estilo sin intervención manual. Además, cabe aclarar que \texttt{SQLFluff} puede ejecutarse manualmente sobre los scripts SQL del proyecto utilizando la terminal del sistema. Esto es útil cuando se quiere revisar el código de manera proactiva antes de hacer cualquier cambio significativo. En este caso, el comando para ejecutar la revisión del código sería \texttt{sqlfluff lint <nombre\_del\_archivo.sql>}, y en caso de querer corregir los errores encontrados, se ejecutaría \texttt{sqlfluff fix <nombre\_del\_archivo.sql>}. Si se desea ejecutar la revisión sobre todo el proyecto, solo basta con reemplazar el nombre del archivo por un punto, un ejemplo de esto sería: "\texttt{sqlfluff fix .}".
+Esto permite que cada vez que se haga un commit, \texttt{SQLFluff} valide los archivos \texttt{.sql} y si es posible, corrija automáticamente algunos errores de estilo sin intervención manual. Además, cabe aclarar que \texttt{SQLFluff} puede ejecutarse manualmente sobre los scripts SQL del proyecto utilizando la terminal del sistema. Esto es útil cuando se quiere revisar el código de manera proactiva antes de hacer cualquier cambio significativo. En este caso, el comando para ejecutar la revisión del código sería \texttt{sqlfluff lint <nombre\_del\_archivo.sql>}, y en caso de querer corregir los errores encontrados, se ejecutaría \texttt{sqlfluff fix <nombre\_del\_archivo.sql>}. Si se desea ejecutar la revisión sobre todo el proyecto, solo basta con reemplazar el nombre del archivo por un punto, un ejemplo de esto sería: "\texttt{sqlfluff fix .}".
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/precommitExample.png}
+    \caption{Ejemplo de archivo de configuración para pre-commit en proyecto con sqlfluff}
+    \label{fig:precommitExample}
+\end{figure}
+
 
 \subsection{Consideraciones de la implementación}
 Ambas herramientas, \texttt{Liquibase} y \texttt{Flyway}, se integran perfectamente en un entorno GitOps con PostgreSQL, proporcionando trazabilidad completa de los cambios en la base de datos. Al utilizar un repositorio Git como la fuente de verdad y un linter para SQL que nos ayude a mantener algunas reglas entre los miembros del equipo de desarrollo, se asegura que cualquier modificación en la base de datos esté bien documentada y pueda ser revisada, probada y desplegada de forma controlada. Además, tanto \texttt{Liquibase} como \texttt{Flyway} mantienen una tabla interna (\texttt{databasechangelog} en \texttt{Liquibase} y \texttt{flyway\_schema\_history} en \texttt{Flyway}) en la base de datos para registrar las migraciones aplicadas. Estas tablas son esenciales para el correcto funcionamiento de los despliegues automatizados, y es importante considerar las capacidades de rollback que ofrecen las herramientas, siendo más flexible en \texttt{Liquibase} que en \texttt{Flyway}, ya que este último depende más de scripts SQL orientados a versiones.
