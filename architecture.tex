@@ -31,7 +31,7 @@ Email: gsalasm@ucenfotec.ac.cr }}
 \maketitle
 
 \begin{abstract}
-    Este artículo de maestría se centra en el estudio y la mejora de los procesos de control de versiones para bases de datos evolutivas, un área que ha recibido relativamente poca atención en la disciplina de ingeniería de software, sin embargo, es una práctica cada vez más demandada en los grupos de desarrollo. Las bases de datos están diseñadas para adaptarse y cambiar con el tiempo sin embargo el no tener un registro completo de los cambios que se aplican sobre cada uno de los objetos que la componen pueden llegar a causar diferentes problemas en los grupos de desarrollo y por su puesto en las bases de datos.
+    Este artículo se centra en el estudio y la mejora de los procesos de control de versiones para bases de datos evolutivas, un área que ha recibido relativamente poca atención en la disciplina de ingeniería de software, sin embargo, es una práctica cada vez más demandada en los grupos de desarrollo. Las bases de datos están diseñadas para adaptarse y cambiar con el tiempo sin embargo el no tener un registro completo de los cambios que se aplican sobre cada uno de los objetos que la componen pueden llegar a causar diferentes problemas en los grupos de desarrollo y por su puesto en las bases de datos.
 \end{abstract}
     
 \begin{IEEEkeywords}
@@ -100,11 +100,11 @@ Las fuentes de información que se mencionan, como IEEE, ACM, Research Gate entr
 
 \section{Antecedentes}
 
-Dada la investigacion realizada se aprecia como muchos autores consideran que el campo de las bases de datos ha experimentado una evolución significativa, impulsada por la necesidad de adaptarse a los cambios rápidos del entorno de desarrollo ágil y las metodologías de integración continua (CI) y entrega continua (CD). La gestión de versiones y la refactorización de bases de datos, temas clave en este estudio, han sido objeto de múltiples investigaciones. Uno de los trabajos más relevantes en este campo es el de Ambler y Sadalage (2006) \cite{ambler2006refactoring}, quienes introdujeron las técnicas de refactorización de bases de datos como un medio para mejorar la estructura y la calidad de los sistemas de bases de datos sin comprometer su semántica. Este enfoque permite que las bases de datos evolucionen de manera paralela al código fuente, lo que facilita la adaptación continua en proyectos ágiles. 
+Dada la investigación realizada se aprecia como muchos autores consideran que el campo de las bases de datos ha experimentado una evolución significativa, impulsada por la necesidad de adaptarse a los cambios rápidos del entorno de desarrollo ágil y las metodologías de integración continua (CI) y entrega continua (CD). La gestión de versiones y la refactorización de bases de datos, temas clave en este estudio, han sido objeto de múltiples investigaciones. Uno de los trabajos más relevantes en este campo es el de Ambler y Sadalage (2006) \cite{ambler2006refactoring}, quienes introdujeron las técnicas de refactorización de bases de datos como un medio para mejorar la estructura y la calidad de los sistemas de bases de datos sin comprometer su semántica. Este enfoque permite que las bases de datos evolucionen de manera paralela al código fuente, lo que facilita la adaptación continua en proyectos ágiles. 
 
 En paralelo, la investigación sobre la integración de bases de datos en entornos CI/CD ha ganado relevancia, como lo demuestra el trabajo de Fluri et al. (2023) \cite{fluri2023measuring}, que mostró cómo la automatización de la integración y despliegue de bases de datos contribuye a la estabilidad y eficiencia de los proyectos de software. Sin embargo, a pesar de estos avances, sigue siendo un desafío integrar las bases de datos en los ciclos ágiles de manera eficiente y con control adecuado de versiones. Así, la evolución de esquemas en sistemas de bases de datos, descrita por Roddick (1992) \cite{roddick1992schema}, sigue siendo una cuestión crucial, ya que permite que las bases de datos se adapten a los cambios del mundo real mientras mantienen la integridad de los datos. Estos antecedentes destacan la importancia de crear una arquitectura sólida de control de versiones para bases de datos.
 
-\section{Metodología}
+\section{Metodología de Investigación}
 La metodología de investigación de esta propuesta adopta un enfoque mixto, integrando tanto técnicas cualitativas como cuantitativas. Según Monje (2011) \cite{Monje2011}, el enfoque mixto permite abordar de manera integral los fenómenos bajo estudio, ofreciendo una comprensión más profunda al combinar la recolección de datos descriptivos y numéricos. Este enfoque se utilizará para explorar las percepciones y prácticas relacionadas con el control de versiones en bases de datos evolutivas, utilizando técnicas como entrevistas semiestructuradas y análisis documental en el caso cualitativo, y encuestas y experimentos controlados en el caso cuantitativo.
 
 La metodología cualitativa permite obtener una comprensión profunda de las experiencias y desafíos de los desarrolladores y administradores de bases de datos en relación con el control de versiones. Para ello, se llevaron a cabo entrevistas semiestructuradas con expertos en el área de desarrollo de software y administración de bases de datos, así como un análisis documental de los registros de cambios y manuales de proyectos reales basado en la adapcion de la ciencia de diseño \cite{RoblesVasquezNaranjo}. La selección de los participantes se realiza mediante un muestreo intencional, y los datos obtenidos se analizan a través de un enfoque de análisis temático, permitiendo identificar patrones recurrentes en las prácticas de control de versiones.
@@ -127,7 +127,7 @@ El uso del enfoque mixto se justifica por la complejidad del tema investigado. E
 % \end{enumerate}
     
 \section{Objetivo}
-El objetivo general de este proyecto es proponer una arquitectura de control de versiones para bases de datos relacionales evolutivas que facilite la gestión de cambios, mejore la eficiencia y la seguridad de los procesos de CI/CD. La elección de la taxonomía de Bloom (1956) \cite{TBloom} se debe a su amplia documentación y aplicabilidad, ya que su estructuración jerárquica permite definir los objetivos de manera clara y ordenada, desde los más generales hasta los más específicos. Esto facilita una alineación adecuada con los principios del control de versiones en bases de datos dentro de entornos ágiles de desarrollo.
+El objetivo general de este proyecto es proponer una arquitectura de control de versiones para bases de datos relacionales evolutivas que facilite la gestión de cambios, mejore la eficiencia y la seguridad de los procesos de CI/CD. La elección de la taxonomía de Bloom \cite{TBloom} se debe a su amplia documentación y aplicabilidad, ya que su estructuración jerárquica permite definir los objetivos de manera clara y ordenada, desde los más generales hasta los más específicos. Esto facilita una alineación adecuada con los principios del control de versiones en bases de datos dentro de entornos ágiles de desarrollo.
 
 \section{Objetivos Específicos}
 \begin{enumerate}
@@ -136,6 +136,58 @@ El objetivo general de este proyecto es proponer una arquitectura de control de 
     \item Desarrollar una arquitectura que aborde los desafíos específicos de las bases de datos evolutivas, adaptando y mejorando las prácticas actuales de control de versiones para permitir un manejo efectivo de los cambios.
     \item Probar la efectividad de la arquitectura propuesta en entornos reales de desarrollo de software, asegurando que los beneficios descritos se materialicen en la práctica y mejoren la productividad y seguridad de los procesos de desarrollo.
 \end{enumerate}
+
+\section{Resultados}
+Como parte del análisis de la documentación y los datos recopilados en las encuestas y entrevistas, se obtuvieron los siguientes resultados. Las encuestas fueron aplicadas a 23 profesionales en informática, abarcando áreas como ciencia de datos, desarrollo de software e inteligencia de negocios (BI), siendo los desarrolladores de software el grupo más numeroso (39\%), como se muestra en la Figura \ref{fig:profesionalsDistribution}. Los temas de la encuesta incluyeron experiencia en bases de datos, control de versiones, metodologías ágiles y prácticas de CI/CD.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/profesionalsDistribution.png}
+    \caption{Distribución de profesionales encuestados}
+    \label{fig:profesionalsDistribution}
+\end{figure}
+
+En cuanto a la experiencia con bases de datos, los encuestados reportaron niveles intermedio o avanzado, donde la mayoría indica que tiene experiencia con bases de datos relacionales, pero solo un 52\% tiene experiencia con bases NoSQL. Los usuarios reportaron que los problemas más comunes al gestionar cambios en bases de datos incluyen la gestión de dependencias, conflictos de versiones y la consistencia de los datos como se puede observar en la Figura \ref{fig:commonDBIssues}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/commonDBIssues.png}
+    \caption{Distribución de problemas comunes al gestionar cambios en bases de datos}
+    \label{fig:commonDBIssues}
+\end{figure}
+
+Respecto al uso de sistemas de control de versiones, aunque la mayoría de los encuestados tienen experiencia (principalmente con Git), un 60\% indicó no haber usado control de versiones en bases de datos anteriormente en sus proyectos. Para facilitar la compresión de la utilización de control de versiones en bases de datos, muestran los resultados divididos por profesión, como se puede ver en el gráfico de la Figura \ref{fig:vcsDBbyProfesion}, solo una minoría de los encuestados ha aplicado sistemas de control de versiones específicamente en bases de datos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/vcsDBbyProfesion.png}
+    \caption{Utilización de control de versiones en bases de datos por profesión}
+    \label{fig:vcsDBbyProfesion}
+\end{figure}
+
+En términos de metodologías ágiles, más del 90\% de los encuestados indicó tener experiencia en su uso, con herramientas de planificación como Jira y Azure DevOps siendo las más utilizadas. Entre las dificultades en la estimación de tareas para bases de datos se mencionaron dependencias ocultas y cambios imprevistos, destacando la complejidad en la planificación de tareas en este contexto, como se observa en la Figura \ref{fig:dificultades}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.48\textwidth]{images/dificultades.png}
+    \caption{Utilización de control de versiones en bases de datos por profesión}
+    \label{fig:dificultades}
+\end{figure}
+
+Por otra parte, cuando se les pregunto a los participantes sobre su experiencia en CI/CD con bases de datos, se observó una adopción limitada. Aunque muchos de los encuestados usan prácticas de CI/CD en desarrollo de software, solo una minoría las aplica específicamente a bases de datos. Los beneficios identificados incluyen la detección temprana de errores y una colaboración mejorada, mientras que los desafíos más citados son la consistencia de datos y la complejidad para integrar cambios de esquema en pipelines automatizados.
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.48\textwidth]{images/cicdDB.png}
+%     \caption{Experiencia de los participantes sobre CI/CD en bases de datos}
+%     \label{fig:cicdDB}
+% \end{figure}
+
+Además de las encuestas a profesionales, también se realizó una entrevista con el experto Don Humberto Fonseca Conejo, quien cuenta con una amplia experiencia de más de 15 años en bases de datos, brindando perspectivas profundas sobre los desafíos y prácticas actuales en este campo, lo cual enriquece el análisis de esta investigación. Don Humberto compartió sus opiniones sobre la gestión de cambios en bases de datos, resaltando su preferencia por enfoques tradicionales, como el uso de copias de seguridad y snapshots, en lugar de herramientas de versionado como Liquibase y Flyway. Aunque no está familiarizado con el término "base de datos evolutiva," interpreta este concepto como una base de datos que requiere adaptarse continuamente para cumplir con las demandas cambiantes del negocio.
+
+Al ser consultado sobre la automatización de despliegue de cambios, Don Humberto expresó interés en esta práctica como un método para agilizar procesos y reducir tiempos en entornos multiambiente, aunque destaca que intentos previos no tuvieron éxito debido a la falta de guías y conocimientos técnicos específicos. Sin embargo, reconoce el potencial de herramientas de gestión de versiones en equipos que operan en entornos de alta frecuencia de cambio, afirmando que podrían mejorar el control de versiones y la colaboración en estos escenarios. Estos valiosos aportes subrayan la relevancia de adoptar y adaptar prácticas de versionado y despliegue continuo en el contexto de bases de datos evolutivas, respaldando así los enfoques propuestos en este estudio.
+
 
 \section{Marco Propuesto}
 La propuesta de solución para el control de versiones en bases de datos evolutivas se diseñada para abordar los desafíos en la gestión de cambios en bases de datos, particularmente dentro del contexto de metodologías ágiles y prácticas de CI/CD. La arquitectura planteada permite a los equipos de desarrollo rastrear, revertir y desplegar cambios de manera eficiente y segura, minimizando los riesgos de errores y conflictos en los esquemas de bases de datos, mejorando la colaboración y asegurando la integridad de los datos a lo largo de todo el ciclo de vida del desarrollo.
