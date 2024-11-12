@@ -1,5 +1,6 @@
 \documentclass{IEEEtran}
 \usepackage[utf8]{inputenc}
+
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{xurl}
@@ -19,7 +20,7 @@
 \IEEEauthorblockA{\\Maestría en ingeniería de software con énfasis en arquitectura y diseño de software.\\
 Universidad Cenfotec\\
 San Jose, Costa Rica\\
-Email: gsalasm@ucenfotec.ac.cr }}
+Email: \{gsalasm, mperez\}@ucenfotec.ac.cr }}
 
 
 \date{\today}
@@ -64,11 +65,11 @@ Conforme al paradigma Objetivo-Pregunta-Métrica (GQM) \cite{Basili1992}, el obj
 
 
 \vspace{0.5cm}
-La estructura del resto del artículo es la siguiente. La Sección II presenta las preguntas de investigación. La Sección III discute los trabajos relacionados y el estado del arte. Los antecedentes se describen en la Sección IV. La metodología de investigación se explica en la Sección V, y los objetivos se presentan en las Secciones VI y VII. La Sección VIII describe las herramientas utilizadas para esta propuesta, "Liquibase" y "Flyway". La Sección IX aborda la descripción de la arquitectura propuesta para el control de cambios en bases de datos. La Sección X describe las pautas de la solucion. Finalmente, las Secciones XI y XII discuten los resultados, conclusiones y presentan el trabajo futuro.
+La estructura del resto del artículo es la siguiente. La Sección II presenta las preguntas de investigación. La sección III discute los trabajos relacionados y el estado del arte. Los antecedentes se describen en la sección IV. La metodología de investigación se explica en la sección V, y los objetivos se presentan en las secciones VI y VII. La sección VIII muestra los resultamos obetenidos por medio de las encuentas y las entrevistas a profesionales. La Sección IX aborda la descripción de la arquitectura propuesta para el control de cambios en bases de datos y su implementación utilizando herramientas como liquibase y flyway y por ultimo la sección X describe las pautas de la solucion en conclusiones y presentan el posible trabajo futuro.
 
 
 \section{Preguntas de Investigación.}
-Esta sección enumera las principales preguntas de investigación que se pretende responder.
+Esta sección enumera las principales preguntas de investigación que se pretende responder:
 \begin{itemize}
     \item ¿Cómo mantener la integridad del esquema de base de datos a lo largo del tiempo? 
     \item ¿Cómo colaborar efectivamente entre equipos de desarrollo y administradores de bases de datos? 
@@ -90,10 +91,10 @@ Spinellis \cite{spinellis2005version} discute en su artículo la importancia de 
 Fluri, Fornari y Pustulka \cite{fluri2023measuring} abordan los beneficios de integrar prácticas de CI/CD (Integración Continua / Entrega Continua) en el desarrollo de aplicaciones de bases de datos. A través de estudios de caso industriales, los autores demuestran que la automatización de la integración y el despliegue de bases de datos mediante CI/CD reduce los fallos de despliegue, mejora la estabilidad del sistema y aumenta la frecuencia de los despliegues. Además, desde una perspectiva cualitativa, los desarrolladores informan una carga cognitiva reducida y mejoras en la calidad del software. Los resultados cuestionan las prácticas actuales de lanzamiento de bases de datos, que a menudo están impulsadas por expectativas comerciales y ventanas de lanzamiento fijas.
 
 
-Cao \cite{cao2022estimating} presenta un estudio empírico sobre la estimación del esfuerzo en el desarrollo ágil de software, evaluando diversas actividades como el desarrollo de características, la corrección de errores y la refactorización. Los resultados del estudio indican que, en contraste con la creencia popular, la precisión de las estimaciones de esfuerzo no mejora con el tiempo en el desarrollo ágil. Además, el estudio revela que las tareas de corrección de errores y refactorización tienden a ser sobreestimadas, mientras que las tareas de desarrollo de características no muestran tal patrón. Esta investigación aporta nueva información sobre las dificultades de estimación en el contexto de metodologías ágiles.
+Por otra parte, Cao \cite{cao2022estimating} presenta un estudio empírico sobre la estimación del esfuerzo en el desarrollo ágil de software, evaluando diversas actividades como el desarrollo de características, la corrección de errores y la refactorización. Los resultados del estudio indican que, en contraste con la creencia popular, la precisión de las estimaciones de esfuerzo no mejora con el tiempo en el desarrollo ágil. Este estudio revela que las tareas de corrección de errores y refactorización tienden a ser sobreestimadas, mientras que las tareas de desarrollo de características no muestran tal patrón. Esta investigación aporta nueva información sobre las dificultades de estimación en el contexto de metodologías ágiles, la cual es de relevancia con el proposito de este proyecto.
 
 
-Roddick \cite{roddick1992schema} explora en su artículo la evolución de esquemas en los sistemas de bases de datos, un tema crucial para garantizar que los sistemas se adapten a los cambios del mundo real mediante modificaciones en la estructura del esquema. Además, destaca la importancia de retener estados anteriores del esquema para asegurar la confiabilidad y la integridad de los datos. El autor aborda los desafíos que enfrentan los administradores de bases de datos al tomar decisiones sobre la validez de los datos existentes cuando se implementa un nuevo esquema. La evolución de esquemas se presenta como una propiedad esencial para la adaptación y la gestión de los sistemas de bases de datos a lo largo del tiempo.
+Roddick \cite{roddick1992schema} explora en su artículo la evolución de esquemas en los sistemas de bases de datos, un tema crucial para garantizar que los sistemas se adapten a los cambios del mundo real mediante modificaciones en la estructura del esquema. Por lo que destaca la importancia de retener estados anteriores del esquema para asegurar la confiabilidad y la integridad de los datos. El autor aborda los desafíos que enfrentan los administradores de bases de datos al tomar decisiones sobre la validez de los datos existentes cuando se implementa un nuevo esquema. La evolución de esquemas se presenta como una propiedad esencial para la adaptación y la gestión de los sistemas de bases de datos a lo largo del tiempo.
 
 Las fuentes de información que se mencionan, como IEEE, ACM, Research Gate entre otras, proporcionan una base sólida para entender las prácticas actuales en el desarrollo de software y la gestión de bases de datos. Los trabajos revisados destacan la importancia del uso de sistemas de control de versiones, como se observa en el estudio de Spinellis \cite{spinellis2005version}, que subraya cómo estos sistemas mejoran la productividad y reducen los riesgos asociados al desarrollo de software. Por otro lado, el trabajo de Fluri et al. \cite{fluri2023measuring} aborda la integración continua y entrega continua (CI/CD) en el contexto de bases de datos, demostrando cómo la automatización de estos procesos puede mejorar la estabilidad y eficiencia en los proyectos de desarrollo. Además, la evolución de esquemas en sistemas de bases de datos, un tema tratado por Roddick \cite{roddick1992schema}, es fundamental para asegurar que las bases de datos puedan adaptarse a los cambios sin comprometer la integridad de los datos. Finalmente, la investigación de Cao \cite{cao2022estimating} sobre la estimación de esfuerzos en el desarrollo ágil ofrece perspectivas valiosas sobre cómo las metodologías ágiles impactan en la precisión de las estimaciones de trabajo, un aspecto crítico en proyectos complejos. Estos trabajos no solo enriquecen la comprensión de los procesos ágiles y su integración con la gestión de bases de datos, sino que también forman la base para las soluciones propuestas en esta investigación.
 
@@ -109,22 +110,11 @@ La metodología de investigación de esta propuesta adopta un enfoque mixto, int
 
 La metodología cualitativa permite obtener una comprensión profunda de las experiencias y desafíos de los desarrolladores y administradores de bases de datos en relación con el control de versiones. Para ello, se llevaron a cabo entrevistas semiestructuradas con expertos en el área de desarrollo de software y administración de bases de datos, así como un análisis documental de los registros de cambios y manuales de proyectos reales basado en la adapcion de la ciencia de diseño \cite{RoblesVasquezNaranjo}. La selección de los participantes se realiza mediante un muestreo intencional, y los datos obtenidos se analizan a través de un enfoque de análisis temático, permitiendo identificar patrones recurrentes en las prácticas de control de versiones.
 
-Por otro lado, el enfoque cuantitativo se aplica para medir y analizar los datos numéricos relacionados con la implementación y el rendimiento de las prácticas de control de versiones en bases de datos. A través de encuestas estructuradas, se recolectaron datos sobre la frecuencia, efectividad y desafíos de las prácticas de control de versiones, mientras que los experimentos controlados permitirán evaluar el rendimiento y costo técnico de herramientas como Liquibase y Flyway. Los datos recolectados se analizan utilizando técnicas estadísticas descriptivas e inferenciales, permitiendo obtener conclusiones más objetivas y generalizables sobre las mejores prácticas en este campo.
+Por otro lado, el enfoque cuantitativo se aplica para medir y analizar los datos numéricos relacionados con la implementación y el rendimiento de las prácticas de control de versiones en bases de datos. A través de encuestas estructuradas, se recolectaron datos sobre la frecuencia, efectividad y desafíos de las prácticas de control de versiones, mientras que las entrevistas permiten conocer el pensamineto de expertos en el area sobre la implementación de herramientas como Liquibase y Flyway. Los datos recolectados se analizan utilizando técnicas estadísticas descriptivas e inferenciales, permitiendo obtener conclusiones más objetivas y generalizables sobre las mejores prácticas en este campo.
 
 La integración de ambos enfoques cualitativos y cuantitativos permite obtener una visión holística del fenómeno investigado. La triangulación de los datos cualitativos y cuantitativos se llevo a cabo mediante la comparación de los resultados de las entrevistas y las encuestas, lo que permite identificar convergencias y divergencias en los hallazgos. Además, se realizaron análisis comparativos entre los resultados obtenidos mediante ambos métodos para validar y complementar los hallazgos, ofreciendo así una comprensión más robusta y completa del problema de investigación.
 
 El uso del enfoque mixto se justifica por la complejidad del tema investigado. Esta metodología permite abordar tanto los aspectos técnicos como los humanos del control de versiones en bases de datos evolutivas, lo que proporciona una base sólida de datos empíricos. Estos datos no solo permitirán obtener conclusiones sobre el estado actual de las prácticas en este campo, sino también ofrecer recomendaciones prácticas basadas en evidencia para mejorar las prácticas de control de versiones en la gestión de bases de datos.
-
-% Acontinuacion se detallan las preguntas aplicadas durante las entrevistas: 
-
-% \begin{enumerate}
-%     \item ¿Cuál es su experiencia en el manejo de cambios en bases de datos? 
-%     \item¿Ha escuchado el término "base de datos evolutiva"? 
-%     \item ¿Ha utilizado herramientas para la gestión de versiones en bases de datos como Liquibase y Flyway?
-%     \item¿Cómo calcula el tiempo necesario para realizar un cambio en la base de datos? 
-%     \item ¿Ha pensado en automatizar el despliegue de cambios en la base de datos? 
-%     \item ¿Considera que implementar herramientas como \\Liquibase o Flyway podría mejorar de alguna forma el proceso de implementación de cambios en bases de datos?
-% \end{enumerate}
     
 \section{Objetivo}
 El objetivo general de este proyecto es proponer una arquitectura de control de versiones para bases de datos relacionales evolutivas que facilite la gestión de cambios, mejore la eficiencia y la seguridad de los procesos de CI/CD. La elección de la taxonomía de Bloom \cite{TBloom} se debe a su amplia documentación y aplicabilidad, ya que su estructuración jerárquica permite definir los objetivos de manera clara y ordenada, desde los más generales hasta los más específicos. Esto facilita una alineación adecuada con los principios del control de versiones en bases de datos dentro de entornos ágiles de desarrollo.
@@ -142,7 +132,7 @@ Como parte del análisis de la documentación y los datos recopilados en las enc
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.48\textwidth]{images/profesionalsDistribution.png}
+    \includegraphics[width=0.45\textwidth]{images/profesionalsDistribution.png}
     \caption{Distribución de profesionales encuestados}
     \label{fig:profesionalsDistribution}
 \end{figure}
@@ -151,7 +141,7 @@ En cuanto a la experiencia con bases de datos, los encuestados reportaron nivele
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.48\textwidth]{images/commonDBIssues.png}
+    \includegraphics[width=0.45\textwidth]{images/commonDBIssues.png}
     \caption{Distribución de problemas comunes al gestionar cambios en bases de datos}
     \label{fig:commonDBIssues}
 \end{figure}
@@ -160,7 +150,7 @@ Respecto al uso de sistemas de control de versiones, aunque la mayoría de los e
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.48\textwidth]{images/vcsDBbyProfesion.png}
+    \includegraphics[width=0.45\textwidth]{images/vcsDBbyProfesion.png}
     \caption{Utilización de control de versiones en bases de datos por profesión}
     \label{fig:vcsDBbyProfesion}
 \end{figure}
@@ -169,20 +159,12 @@ En términos de metodologías ágiles, más del 90\% de los encuestados indicó 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.48\textwidth]{images/dificultades.png}
+    \includegraphics[width=0.45\textwidth]{images/dificultades.png}
     \caption{Utilización de control de versiones en bases de datos por profesión}
     \label{fig:dificultades}
 \end{figure}
 
 Por otra parte, cuando se les pregunto a los participantes sobre su experiencia en CI/CD con bases de datos, se observó una adopción limitada. Aunque muchos de los encuestados usan prácticas de CI/CD en desarrollo de software, solo una minoría las aplica específicamente a bases de datos. Los beneficios identificados incluyen la detección temprana de errores y una colaboración mejorada, mientras que los desafíos más citados son la consistencia de datos y la complejidad para integrar cambios de esquema en pipelines automatizados.
-
-
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.48\textwidth]{images/cicdDB.png}
-%     \caption{Experiencia de los participantes sobre CI/CD en bases de datos}
-%     \label{fig:cicdDB}
-% \end{figure}
 
 Además de las encuestas a profesionales, también se realizó una entrevista con el experto Don Humberto Fonseca Conejo, quien cuenta con una amplia experiencia de más de 15 años en bases de datos, brindando perspectivas profundas sobre los desafíos y prácticas actuales en este campo, lo cual enriquece el análisis de esta investigación. Don Humberto compartió sus opiniones sobre la gestión de cambios en bases de datos, resaltando su preferencia por enfoques tradicionales, como el uso de copias de seguridad y snapshots, en lugar de herramientas de versionado como Liquibase y Flyway. Aunque no está familiarizado con el término "base de datos evolutiva," interpreta este concepto como una base de datos que requiere adaptarse continuamente para cumplir con las demandas cambiantes del negocio.
 
@@ -337,17 +319,24 @@ Esto permite que cada vez que se haga un commit, \texttt{SQLFluff} valide los ar
 
 
 \subsection{Consideraciones de la implementación}
-Ambas herramientas, \texttt{Liquibase} y \texttt{Flyway}, se integran perfectamente en un entorno GitOps con PostgreSQL, proporcionando trazabilidad completa de los cambios en la base de datos. Al utilizar un repositorio Git como la fuente de verdad y un linter para SQL que nos ayude a mantener algunas reglas entre los miembros del equipo de desarrollo, se asegura que cualquier modificación en la base de datos esté bien documentada y pueda ser revisada, probada y desplegada de forma controlada. Además, tanto \texttt{Liquibase} como \texttt{Flyway} mantienen una tabla interna (\texttt{databasechangelog} en \texttt{Liquibase} y \texttt{flyway\_schema\_history} en \texttt{Flyway}) en la base de datos para registrar las migraciones aplicadas. Estas tablas son esenciales para el correcto funcionamiento de los despliegues automatizados, y es importante considerar las capacidades de rollback que ofrecen las herramientas, siendo más flexible en \texttt{Liquibase} que en \texttt{Flyway}, ya que este último depende más de scripts SQL orientados a versiones.
+Ambas herramientas, Liquibase y Flyway, se integran perfectamente en un entorno GitOps con PostgreSQL, proporcionando trazabilidad completa de los cambios en la base de datos. Al utilizar un repositorio Git como la fuente de verdad y un linter para SQL que nos ayude a mantener algunas reglas entre los miembros del equipo de desarrollo, se asegura que cualquier modificación en la base de datos esté bien documentada y pueda ser revisada, probada y desplegada de forma controlada. Además, tanto Liquibase como Flyway mantienen una tabla interna (\texttt{databasechangelog} en Liquibase y \texttt{flyway\_schema\_history} en Flyway) en la base de datos para registrar las migraciones aplicadas. Estas tablas son esenciales para el correcto funcionamiento de los despliegues automatizados, y es importante considerar las capacidades de rollback que ofrecen las herramientas, siendo más flexible en Liquibase que en Flyway, ya que este último depende más de scripts SQL orientados a versiones.
 
 
 \section{Conclusiones y Trabajos Futuros}
-Este proyecto ha explorado la implementación de un sistema de control de versiones en bases de datos altamente cambiantes, evaluando herramientas como Liquibase y Flyway en el contexto de metodologías ágiles y prácticas de CI/CD. A continuación, se presentan las conclusiones obtenidas y algunas recomendaciones para futuras investigaciones.
+Este proyecto ha explorado la implementación de un sistema de control de versiones en bases de datos altamente cambiantes, proponiendo herramientas como Liquibase y Flyway en el contexto de metodologías ágiles y prácticas de CI/CD. A continuación, se presentan las conclusiones obtenidas y algunas recomendaciones para futuras investigaciones.
 
 \subsection{Conclusiones}
-La implementación de control de versiones en bases de datos es fundamental en entornos ágiles y CI/CD, ya que mejora la trazabilidad de cambios y la colaboración en el equipo de desarrollo. La comparación entre Liquibase y Flyway mostró que ambas herramientas son efectivas para gestionar cambios en bases de datos, cada una con sus ventajas. Liquibase es robusto en soporte para múltiples bases de datos y cambios complejos, mientras que Flyway ofrece una curva de aprendizaje más sencilla, siendo ideal para equipos menos experimentados. Este proyecto concluye que la adopción de cualquiera de estas herramientas, en combinación con prácticas ágiles, incrementa la eficiencia en la implementación de cambios en bases de datos.
+El análisis realizado en este proyecto destaca la importancia de implementar un control de versiones efectivo en bases de datos, especialmente en entornos que utilizan metodologías ágiles y prácticas de CI/CD. Una de las principales conclusiones es que la falta de un sistema y/o proceso de control de versiones bien definido puede llevar a problemas significativos, como el seguimiento de los cambios aplicados, dificultades en la gestión de dependencias y conflictos en la colaboración entre los miembros del equipo de desarrollo. 
+
+La comparación entre Liquibase y Flyway ha demostrado que ambas herramientas ofrecen capacidades sólidas para gestionar cambios en las bases de datos, aunque cada una tiene sus ventajas específicas. Liquibase, por ejemplo, es particularmente fuerte en su soporte para múltiples bases de datos y su flexibilidad en la gestión de cambios complejos. Por otro lado, Flyway destaca por su simplicidad y facilidad de uso, lo que lo convierte en una opción atractiva para proyectos donde la curva de aprendizaje debe ser mínima. En general, al comparar el resultado de las encuestas y la entrevista se puede concluir que la adopción de cualquiera de estas herramientas, en combinación con prácticas ágiles y CI/CD, puede mejorar de diferentes maneras la eficiencia y la calidad con la que se implementan cambios en los esquemas de bases de datos.
+
 
 \subsection{Trabajos Futuros}
-Este estudio abre varias áreas de investigación futura. Una línea interesante es la automatización avanzada de la integración de bases de datos en entornos CI/CD, explorando cómo tecnologías emergentes, como inteligencia artificial y machine learning, pueden mejorar la predicción de conflictos en cambios. Además, sería valioso estudiar la adaptación del control de versiones a bases de datos no relacionales y distribuidas, como MongoDB o Cassandra, dada la creciente popularidad de estos sistemas. Finalmente, es importante investigar el impacto cultural y organizacional de adoptar control de versiones en bases de datos, considerando los ajustes en mentalidad y procesos que podrían ser necesarios para una implementación efectiva en entornos reales.
+A partir de los hallazgos de este proyecto, se recomienda que las organizaciones que aún no han adoptado un sistema de control de versiones en sus bases de datos consideren la implementación de herramientas como Liquibase o Flyway. Es crucial seleccionar la herramienta que mejor se adapte a las necesidades específicas del proyecto y del equipo de desarrollo, considerando factores como la complejidad de los cambios en la base de datos, la diversidad de los sistemas de bases de datos utilizados y el nivel de experiencia del equipo. 
+
+Además, se recomienda que estas herramientas se integren dentro de un marco de trabajo ágil y de CI/CD, para maximizar los beneficios en términos de automatización y colaboración. Las organizaciones deben también considerar la capacitación de sus equipos en el uso de estas herramientas y en la estimación de esfuerzos para los cambios en bases de datos, lo que puede incluir la adopción de prácticas como la planificación basada en puntos de historia. 
+Por último, es esencial que se realicen pruebas continuas y ajustes en la implementación para asegurar que el sistema de control de versiones esté alineado con las necesidades cambiantes del proyecto y que se minimicen los riesgos de problemas de integridad y consistencia de datos en el entorno de producción.
+
 
 
 \renewcommand{\refname}{Referencias}

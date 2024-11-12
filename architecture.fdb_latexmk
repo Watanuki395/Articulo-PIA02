@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex architecture"] 1731278322.55369 "architecture.aux" "architecture.bbl" "architecture" 1731278341.51329 0
+["bibtex architecture"] 1731383835.93945 "architecture.aux" "architecture.bbl" "architecture" 1731383968.31928 0
   "./references.bib" 1731274617 8859 23fc70c41ce8ca6dfdc95494b31892d6 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "architecture.aux" 1731278340 6637 df3490a0877f34c934cf1b217f6cc708 "pdflatex"
+  "architecture.aux" 1731383967 6638 6d682ed4a9b1f3281c07c038420721cd "pdflatex"
   (generated)
   "architecture.bbl"
   "architecture.blg"
   (rewritten before read)
-["pdflatex"] 1731278338.16237 "c:/Users/Ore/Documents/Git Projects/Articulo-PIA02/architecture.tex" "architecture.pdf" "architecture" 1731278341.51396 0
+["pdflatex"] 1731383965.36875 "c:/Users/Ore/Documents/Git Projects/Articulo-PIA02/architecture.tex" "architecture.pdf" "architecture" 1731383968.32023 0
   "C:/Users/Ore/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1731257288 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Ore/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1713229757 24235062 4331d4375578390c9c8b0d9b20ba0042 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -26,8 +26,10 @@
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi8.tfm" 1136765053 1520 eccf95517727cb11801f4f1aee3a21b4 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr6.tfm" 1136765053 1300 b62933e007d01cfd073f79b963c01526 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr8.tfm" 1136765053 1292 21c1c5bfeaebccffdb478fd231a0997d ""
+  "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
+  "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb" 1136846148 45758 19968a0990191524e34e1994d4a31cb6 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb" 1136874948 44729 fea0975e20ec51c992338362f05f1146 ""
@@ -77,6 +79,7 @@
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/kvoptions/kvoptions.sty" 1656236481 22555 6d8e155cfef6d82c3d5c742fea7c992e ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/kvsetkeys/kvsetkeys.sty" 1665066333 13815 760b0c02f691ea230f5359c4e1de23a7 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1710412547 29918 d08e4795c0778dfb000e82d9225c6ce2 ""
+  "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/omsptm.fd" 1585253778 595 95c2c0baea9c719a4be29a3d4122498b ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1pcr.fd" 1585253778 1025 1ed784d7bfe47179f3550d2303b073f8 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
@@ -86,11 +89,11 @@
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Ore/AppData/Local/Programs/MiKTeX/tex/latex/xurl/xurl.sty" 1641733940 4675 e4b8c405820368c2dfb03526e16d725a ""
   "IEEEtran.cls" 1731256770 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
-  "architecture.aux" 1731278340 6637 df3490a0877f34c934cf1b217f6cc708 "pdflatex"
-  "architecture.bbl" 1731278322 3090 3551a7dfe3ec84ef7372078bbc28db93 "bibtex architecture"
-  "architecture.out" 1731278340 2979 d5ee810c5127b93124f74fbe0a22e1fe "pdflatex"
-  "architecture.tex" 1731278337 51301 41f614f7bb8e23857aee1958f3a73121 ""
-  "c:/Users/Ore/Documents/Git Projects/Articulo-PIA02/architecture.tex" 1731278337 51301 41f614f7bb8e23857aee1958f3a73121 ""
+  "architecture.aux" 1731383967 6638 6d682ed4a9b1f3281c07c038420721cd "pdflatex"
+  "architecture.bbl" 1731383836 3090 3551a7dfe3ec84ef7372078bbc28db93 "bibtex architecture"
+  "architecture.out" 1731383967 2979 d5ee810c5127b93124f74fbe0a22e1fe "pdflatex"
+  "architecture.tex" 1731383964 51617 6e325b32474a46650234646df0db3b4c ""
+  "c:/Users/Ore/Documents/Git Projects/Articulo-PIA02/architecture.tex" 1731383964 51617 6e325b32474a46650234646df0db3b4c ""
   "images/changelogExample.png" 1731274617 57028 45ce907a2e73848defcd9b4a41d4fd69 ""
   "images/commonDBIssues.png" 1731276058 41732 cc4bf2535af4a11c9965ceafe2f8bdab ""
   "images/dificultades.png" 1731277009 50741 a735ba97ffcd4a5a39fe3db2e3c0e9c2 ""
